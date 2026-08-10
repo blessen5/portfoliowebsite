@@ -121,33 +121,88 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    /* 
-      ===================================================================
-      DEVELOPER NOTE FOR BACKEND INTEGRATION:
-      Currently there is no live email backend service connected.
-      To enable real-time email delivery to blessenpshaju@gmail.com:
-      
-      Option 1 (EmailJS):
-        import emailjs from '@emailjs/browser';
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', { name, email, message }, 'YOUR_PUBLIC_KEY');
-
-      Option 2 (Formspree / Resend API):
-        fetch('https://formspree.io/f/YOUR_FORM_ID', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message })
-        });
-      ===================================================================
-    */
+    // Set Web3Forms Access Key or Formspree ID here to receive real emails to blessenpshaju@gmail.com
+    // Get free key in 1 minute from https://web3forms.com/ or https://formspree.io/
+    const WEB3FORMS_ACCESS_KEY = ''; // e.g. 'YOUR_ACCESS_KEY_HERE'
+    const FORMSPREE_FORM_ID = '';    // e.g. 'mknlqpxw'
 
     if (formFeedback) {
       formFeedback.style.display = 'block';
-      formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
-      formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
-      formFeedback.style.color = 'var(--accent-cyan)';
-      formFeedback.textContent = 'Form submitted locally. Connect an email service or backend to enable real message delivery.';
+      formFeedback.style.background = 'rgba(59, 130, 246, 0.15)';
+      formFeedback.style.border = '1px solid rgba(59, 130, 246, 0.3)';
+      formFeedback.style.color = 'var(--accent-blue)';
+      formFeedback.textContent = 'Sending message...';
     }
 
-    contactForm.reset();
+    if (WEB3FORMS_ACCESS_KEY) {
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ access_key: WEB3FORMS_ACCESS_KEY, name, email, message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && formFeedback) {
+          formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
+          formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
+          formFeedback.style.color = 'var(--accent-cyan)';
+          formFeedback.textContent = 'Thank you! Your message has been sent successfully.';
+          contactForm.reset();
+        } else if (formFeedback) {
+          formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
+          formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          formFeedback.style.color = '#ef4444';
+          formFeedback.textContent = data.message || 'Error sending message. Please try again.';
+        }
+      })
+      .catch(() => {
+        if (formFeedback) {
+          formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
+          formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          formFeedback.style.color = '#ef4444';
+          formFeedback.textContent = 'Network error. Please try again later.';
+        }
+      });
+    } else if (FORMSPREE_FORM_ID) {
+      fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, message })
+      })
+      .then(res => {
+        if (res.ok && formFeedback) {
+          formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
+          formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
+          formFeedback.style.color = 'var(--accent-cyan)';
+          formFeedback.textContent = 'Thank you! Your message has been sent successfully.';
+          contactForm.reset();
+        } else if (formFeedback) {
+          formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
+          formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          formFeedback.style.color = '#ef4444';
+          formFeedback.textContent = 'Error sending message. Please try again.';
+        }
+      })
+      .catch(() => {
+        if (formFeedback) {
+          formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
+          formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+          formFeedback.style.color = '#ef4444';
+          formFeedback.textContent = 'Network error. Please try again later.';
+        }
+      });
+    } else {
+      // Local fallback mode when no API key is provided yet
+      setTimeout(() => {
+        if (formFeedback) {
+          formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
+          formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
+          formFeedback.style.color = 'var(--accent-cyan)';
+          formFeedback.textContent = 'Message validated locally! To receive real emails in your inbox, add a Web3Forms key or Formspree ID to src/js/main.js.';
+        }
+        contactForm.reset();
+      }, 400);
+    }
   });
+
 });
