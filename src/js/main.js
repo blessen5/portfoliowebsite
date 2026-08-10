@@ -192,17 +192,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     } else {
-      // Local fallback mode when no API key is provided yet
+      // Direct mailto fallback ensuring real message delivery to blessenpshaju@gmail.com
+      const subject = encodeURIComponent(`Portfolio Message from ${name}`);
+      const body = encodeURIComponent(`Sender Name: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`);
+      const mailtoUrl = `mailto:blessenpshaju@gmail.com?subject=${subject}&body=${body}`;
+
+      if (formFeedback) {
+        formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
+        formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
+        formFeedback.style.color = 'var(--accent-cyan)';
+        formFeedback.textContent = 'Opening your email client to send message to blessenpshaju@gmail.com...';
+      }
+
       setTimeout(() => {
-        if (formFeedback) {
-          formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
-          formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
-          formFeedback.style.color = 'var(--accent-cyan)';
-          formFeedback.textContent = 'Message validated locally! To receive real emails in your inbox, add a Web3Forms key or Formspree ID to src/js/main.js.';
-        }
+        window.location.href = mailtoUrl;
         contactForm.reset();
-      }, 400);
+      }, 500);
     }
   });
+
 
 });
