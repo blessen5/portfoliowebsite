@@ -42,7 +42,7 @@ export const PROJECTS = [
     • Exploratory architecture integrating AI capabilities into practical code.
     • Built to study prompt engineering, API responses, and automated data processing.`,
     githubUrl: '', // Marked as placeholder for user to add
-    demoUrl: ''
+    demoUrl: 'https://rigmaster-ai.vercel.app/'
   }
 ];
 
