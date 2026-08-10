@@ -34,8 +34,16 @@ Focus      : Data Structures, Operating Systems, Networks, DBMS, Software Engine
 
   contact: `Direct Contact Channels:
   • Email    : <a href="mailto:blessenpshaju@gmail.com" class="hl-cyan">blessenpshaju@gmail.com</a>
-  • LinkedIn : <a href="https://linkedin.com/in/blessenpshaju" target="_blank" class="hl-cyan">linkedin.com/in/blessenpshaju</a>
-  • GitHub   : <a href="https://github.com/blessenpshaju" target="_blank" class="hl-cyan">github.com/blessenpshaju</a>`
+  • LinkedIn : <a href="https://www.linkedin.com/in/blessen-p-shaju" target="_blank" rel="noopener noreferrer" class="hl-cyan">linkedin.com/in/blessen-p-shaju</a>
+  • GitHub   : <a href="https://github.com/blessen5" target="_blank" rel="noopener noreferrer" class="hl-cyan">github.com/blessen5</a>`,
+
+  docker: `<span class="cmd-info">CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS</span>
+  a1b2c3d4e5f6   nginx:alpine     "/docker-entrypoint.…"   2 hours ago     Up 2 hours     0.0.0.0:80->80/tcp
+  b7c8d9e0f1a2   redis:7-alpine   "docker-entrypoint.s…"   2 hours ago     Up 2 hours     6379/tcp`,
+
+  'docker ps': `<span class="cmd-info">CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS</span>
+  a1b2c3d4e5f6   nginx:alpine     "/docker-entrypoint.…"   2 hours ago     Up 2 hours     0.0.0.0:80->80/tcp
+  b7c8d9e0f1a2   redis:7-alpine   "docker-entrypoint.s…"   2 hours ago     Up 2 hours     6379/tcp`
 };
 
 export function initTerminal() {

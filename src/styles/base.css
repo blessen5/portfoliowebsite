@@ -85,8 +85,34 @@ button, input, textarea {
   font-family: inherit;
   font-size: inherit;
   border: none;
-  outline: none;
   background: none;
+}
+
+/* Accessible Focus Ring for Keyboard Users */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Accessible Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--accent-cyan);
+  color: var(--text-dark);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--radius-md);
+  z-index: 9999;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 /* Section Container Utilities */

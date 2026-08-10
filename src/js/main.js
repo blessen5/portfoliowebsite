@@ -21,29 +21,66 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNavToggle = document.getElementById('mobile-nav-toggle');
   const navLinks = document.getElementById('nav-links');
 
-  mobileNavToggle?.addEventListener('click', () => {
-    const isActive = navLinks?.classList.toggle('active');
-    mobileNavToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+  function closeMobileNav() {
+    navLinks?.classList.remove('active');
+    mobileNavToggle?.setAttribute('aria-expanded', 'false');
+    navLinks?.setAttribute('aria-hidden', 'true');
+  }
+
+  function openMobileNav() {
+    navLinks?.classList.add('active');
+    mobileNavToggle?.setAttribute('aria-expanded', 'true');
+    navLinks?.setAttribute('aria-hidden', 'false');
+  }
+
+  mobileNavToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isActive = navLinks?.classList.contains('active');
+    if (isActive) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
   });
 
   // Close mobile nav when clicking a link
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks?.classList.remove('active');
-      mobileNavToggle?.setAttribute('aria-expanded', 'false');
+      closeMobileNav();
     });
   });
 
-  // Interactive mouse spotlight positioning on glass cards
-  document.querySelectorAll('.glass-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
+  // Close mobile nav on click outside or Escape key
+  document.addEventListener('click', (e) => {
+    if (navLinks?.classList.contains('active') && !navLinks.contains(e.target) && e.target !== mobileNavToggle) {
+      closeMobileNav();
+    }
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks?.classList.contains('active')) {
+      closeMobileNav();
+    }
+  });
+
+  // Interactive mouse spotlight positioning on glass cards
+  function initGlassSpotlights() {
+    document.querySelectorAll('.glass-card').forEach(card => {
+      if (card.dataset.spotlightBound) return;
+      card.dataset.spotlightBound = 'true';
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  window.initGlassSpotlights = initGlassSpotlights;
+  initGlassSpotlights();
+
 
   // Contact form submission handler with frontend validation
   const contactForm = document.getElementById('contact-form');

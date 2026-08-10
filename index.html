@@ -15,11 +15,13 @@
   <meta property="og:description" content="Personal portfolio of Blessen P Shaju featuring software engineering, cloud technology explorations, Docker, Linux, and academic projects.">
   <meta property="og:url" content="https://github.com/blessen5">
   <meta property="og:site_name" content="Blessen P Shaju Portfolio">
+  <meta property="og:image" content="https://github.com/blessen5/favicon.svg">
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blessen P Shaju | Computer Science Graduate & Aspiring Developer">
   <meta name="twitter:description" content="Explore software engineering, cloud computing, and DevOps projects by Blessen P Shaju.">
+  <meta name="twitter:image" content="https://github.com/blessen5/favicon.svg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -28,8 +30,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Structured Data JSON-LD (Person Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Blessen P Shaju",
+    "jobTitle": "Computer Science Graduate & Aspiring Developer",
+    "url": "https://github.com/blessen5",
+    "sameAs": [
+      "https://github.com/blessen5",
+      "https://www.linkedin.com/in/blessen-p-shaju"
+    ],
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Mahatma Gandhi University, Kerala"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "SSV College, Valayanchirangara"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Glass Header Navbar -->
   <header>
@@ -42,7 +72,7 @@
         <span class="status-dot"></span> Open to Opportunities
       </div>
 
-      <div class="nav-links" id="nav-links">
+      <div class="nav-links" id="nav-links" aria-hidden="false">
         <a href="#hero" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
@@ -62,13 +92,13 @@
         </a>
 
         <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
         </button>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
 
     <!-- Hero Section -->
     <section id="hero" class="section-padding" style="padding-top: 9rem; min-height: 90vh; display: flex; align-items: center;">
@@ -859,7 +889,7 @@
               Send a Message
             </h3>
             
-            <div id="form-feedback" style="display: none; padding: 0.85rem 1.1rem; margin-bottom: 1.25rem; border-radius: var(--radius-md); font-size: 0.92rem; line-height: 1.5;"></div>
+            <div id="form-feedback" aria-live="polite" style="display: none; padding: 0.85rem 1.1rem; margin-bottom: 1.25rem; border-radius: var(--radius-md); font-size: 0.92rem; line-height: 1.5;"></div>
 
             <form id="contact-form">
               <div class="form-group">
@@ -879,7 +909,7 @@
 
               <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
                 Send Message
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
             </form>
           </div>
@@ -891,11 +921,11 @@
   </main>
 
   <!-- Command Palette Modal (Ctrl + K) -->
-  <div class="command-palette-backdrop" id="command-palette-backdrop">
+  <div class="command-palette-backdrop" id="command-palette-backdrop" role="dialog" aria-modal="true" aria-label="Command Palette">
     <div class="command-palette-dialog">
       <div class="command-input-container">
-        <svg class="command-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="command-input" class="command-input" placeholder="Type a command or search section..." autocomplete="off" spellcheck="false">
+        <svg class="command-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="command-input" class="command-input" placeholder="Type a command or search section..." autocomplete="off" spellcheck="false" aria-label="Command search input">
         <span class="command-shortcut-hint">ESC to exit</span>
       </div>
       <div class="command-results" id="command-results">
@@ -905,10 +935,10 @@
   </div>
 
   <!-- Project Detail Modal -->
-  <div class="modal-backdrop" id="project-modal-backdrop">
+  <div class="modal-backdrop" id="project-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-project-title" aria-hidden="true">
     <div class="modal-content">
       <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </button>
       <div id="project-modal-body">
         <!-- Injected dynamically -->

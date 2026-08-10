@@ -153,26 +153,27 @@ export function initProjects() {
     });
 
     if (window.observeReveals) window.observeReveals();
+    if (window.initGlassSpotlights) window.initGlassSpotlights();
   }
 
   function renderLinkButtons(project) {
     const ghBtn = project.githubUrl
-      ? `<a href="${project.githubUrl}" target="_blank" class="btn btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.8rem;">
-           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+      ? `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.8rem;">
+           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
            GitHub
          </a>`
-      : `<button class="btn btn-secondary" disabled style="opacity: 0.5; cursor: not-allowed; padding: 0.45rem 0.9rem; font-size: 0.8rem;" title="GitHub repository link placeholder">
-           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+      : `<button class="btn btn-secondary" disabled aria-disabled="true" style="opacity: 0.5; cursor: not-allowed; padding: 0.45rem 0.9rem; font-size: 0.8rem;" title="GitHub repository link placeholder">
+           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
            GitHub (Link Placeholder)
          </button>`;
 
     const demoBtn = project.demoUrl
-      ? `<a href="${project.demoUrl}" target="_blank" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.8rem;">
-           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.8rem;">
+           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
            Live Demo
          </a>`
-      : `<button class="btn btn-secondary" disabled style="opacity: 0.5; cursor: not-allowed; padding: 0.45rem 0.9rem; font-size: 0.8rem;" title="Live demo link placeholder">
-           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      : `<button class="btn btn-secondary" disabled aria-disabled="true" style="opacity: 0.5; cursor: not-allowed; padding: 0.45rem 0.9rem; font-size: 0.8rem;" title="Live demo link placeholder">
+           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
            Live Demo (Unavailable)
          </button>`;
 
@@ -187,13 +188,16 @@ export function initProjects() {
     });
   });
 
+  let previousActiveElement = null;
+
   function openModal(project) {
     if (!modalContent || !modalBackdrop) return;
+    previousActiveElement = document.activeElement;
     modalContent.innerHTML = `
       <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 0.5rem;">
         <span>PROJECT DEEP DIVE</span> // <span>${project.categoryName}</span>
       </div>
-      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">${project.title}</h2>
+      <h2 id="modal-project-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">${project.title}</h2>
       <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-emerald); margin-bottom: 1.25rem;">
         Status: ${project.status}
       </div>
@@ -216,15 +220,28 @@ export function initProjects() {
       </div>
     `;
     modalBackdrop.classList.add('active');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
+    modalClose?.focus();
   }
 
   function closeModal() {
-    modalBackdrop?.classList.remove('active');
+    if (!modalBackdrop?.classList.contains('active')) return;
+    modalBackdrop.classList.remove('active');
+    modalBackdrop.setAttribute('aria-hidden', 'true');
+    if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+      previousActiveElement.focus();
+    }
   }
 
   modalClose?.addEventListener('click', closeModal);
   modalBackdrop?.addEventListener('click', (e) => {
     if (e.target === modalBackdrop) closeModal();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalBackdrop?.classList.contains('active')) {
+      closeModal();
+    }
   });
 
   renderProjects('all');

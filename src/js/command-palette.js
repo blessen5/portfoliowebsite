@@ -9,7 +9,7 @@ const PALETTE_ITEMS = [
   { title: 'Go to Certifications & Courses', sectionId: 'certificates', category: 'Navigation', icon: '📜' },
   { title: 'Go to Learning & Growth', sectionId: 'learning', category: 'Navigation', icon: '🌱' },
   { title: 'Go to Contact Form', sectionId: 'contact', category: 'Navigation', icon: '✉️' },
-  { title: 'Execute Terminal command: docker ps', action: 'cli:docker', category: 'CLI Action', icon: '🐳' },
+  { title: 'Execute Terminal command: docker ps', action: 'cli:docker ps', category: 'CLI Action', icon: '🐳' },
   { title: 'Execute Terminal command: skills', action: 'cli:skills', category: 'CLI Action', icon: '💻' },
   { title: 'Send Direct Email', action: 'mailto:blessenpshaju@gmail.com', category: 'Contact', icon: '📧' }
 ];

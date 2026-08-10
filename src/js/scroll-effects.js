@@ -25,6 +25,13 @@ export function initScrollEffects() {
       }
     });
 
+    if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
+      const lastSection = sections[sections.length - 1];
+      if (lastSection) {
+        currentSectionId = lastSection.getAttribute('id') || currentSectionId;
+      }
+    }
+
     navLinks.forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${currentSectionId}`) {
