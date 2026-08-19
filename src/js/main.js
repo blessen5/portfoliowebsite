@@ -19,6 +19,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjects();
   initScrollEffects();
 
+  // Interactive Skill Category Filters
+  const skillFilterBtns = document.querySelectorAll('.skill-filter-btn');
+  const skillCards = document.querySelectorAll('.skill-card-item');
+
+  skillFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      skillFilterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.getAttribute('data-skill-filter');
+
+      skillCards.forEach(card => {
+        const cat = card.getAttribute('data-skill-cat');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
   // Mobile navigation drawer controls
   const mobileNavToggle = document.getElementById('mobile-nav-toggle');
   const navLinks = document.getElementById('nav-links');
