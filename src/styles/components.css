@@ -366,10 +366,11 @@ header {
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
-.skill-logo-tile svg {
-  width: 42px;
-  height: 42px;
-  color: var(--text-main);
+.skill-logo-tile svg,
+.skill-logo-tile img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
   transition: all var(--transition-fast);
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
 }
@@ -397,16 +398,16 @@ header {
 }
 
 .skill-logo-tile:hover {
-  transform: translateY(-6px) scale(1.04);
+  transform: translateY(-6px) scale(1.06);
   border-color: var(--border-glow);
   background: linear-gradient(135deg, rgba(225, 29, 72, 0.14) 0%, rgba(255, 255, 255, 0.03) 100%), var(--bg-card-hover);
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 16px 32px -8px rgba(0, 0, 0, 0.9), 0 0 24px var(--accent-red-subtle);
 }
 
-.skill-logo-tile:hover svg {
-  color: #ffffff;
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 12px rgba(225, 29, 72, 0.6));
+.skill-logo-tile:hover svg,
+.skill-logo-tile:hover img {
+  transform: scale(1.12);
+  filter: drop-shadow(0 4px 12px rgba(225, 29, 72, 0.5));
 }
 
 .skill-logo-tile:hover::after {
