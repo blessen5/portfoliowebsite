@@ -338,134 +338,80 @@ header {
 /* ==========================================================================
    Skills Matrix
 /* ==========================================================================
-   Modern Technical Skills Matrix
+   Logo-Only Technical Stack Grid
    ========================================================================== */
-.skills-matrix-filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2.25rem;
-}
-
-.skill-filter-btn {
-  padding: 0.42rem 1.1rem;
-  border-radius: var(--radius-full);
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.skill-filter-btn:hover, .skill-filter-btn.active {
-  color: #ffffff;
-  background: var(--accent-red);
-  border-color: var(--accent-red);
-  box-shadow: 0 0 16px var(--accent-red-glow);
-}
-
-.skills-matrix-grid {
+.skills-logo-wall {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
   gap: 1.25rem;
+  max-width: 950px;
+  margin: 0 auto;
 }
 
-.skill-card-item {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), var(--bg-card);
+.skill-logo-tile {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%), var(--bg-card);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-}
-
-.skill-card-item:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-glow);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 14px 30px -6px rgba(0, 0, 0, 0.8), 0 0 20px var(--accent-red-subtle);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.015) 100%), var(--bg-card-hover);
-}
-
-.skill-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.85rem;
-}
-
-.skill-card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1.25rem;
+  position: relative;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.skill-logo-tile svg {
+  width: 42px;
+  height: 42px;
   color: var(--text-main);
   transition: all var(--transition-fast);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
 }
 
-.skill-card-item:hover .skill-card-icon {
-  background: var(--accent-red-subtle);
-  border-color: var(--accent-red);
+.skill-logo-tile::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -2.2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(14, 14, 20, 0.95);
+  border: 1px solid rgba(225, 29, 72, 0.35);
   color: #ffffff;
-  transform: scale(1.05);
-}
-
-.skill-card-badge {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 0.18rem 0.55rem;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--text-muted);
-}
-
-.skill-card-badge.primary {
-  background: var(--accent-red-subtle);
-  border-color: rgba(225, 29, 72, 0.4);
-  color: #ffffff;
-}
-
-.skill-card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-main);
-  margin-bottom: 0.3rem;
-}
-
-.skill-card-desc {
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 0.85rem;
-  flex-grow: 1;
-}
-
-.skill-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: auto;
-}
-
-.skill-mini-tag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  padding: 0.15rem 0.45rem;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 4px;
-  color: var(--text-subtle);
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-fast);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8), 0 0 12px var(--accent-red-subtle);
+}
+
+.skill-logo-tile:hover {
+  transform: translateY(-6px) scale(1.04);
+  border-color: var(--border-glow);
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.14) 0%, rgba(255, 255, 255, 0.03) 100%), var(--bg-card-hover);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 16px 32px -8px rgba(0, 0, 0, 0.9), 0 0 24px var(--accent-red-subtle);
+}
+
+.skill-logo-tile:hover svg {
+  color: #ffffff;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px rgba(225, 29, 72, 0.6));
+}
+
+.skill-logo-tile:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ==========================================================================
