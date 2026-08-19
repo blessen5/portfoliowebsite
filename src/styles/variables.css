@@ -1,52 +1,52 @@
-/* Design Tokens & Theme System — Ultra-Clean Monochrome Black & White Theme */
+/* Design Tokens & Theme System — Dark Obsidian, Crimson Red & High-Contrast White */
 :root {
-  /* Color Palette — Deep Pitch Black, Charcoal & Frosted Glass */
-  --bg-dark: #000000;
-  --bg-dark-secondary: #0a0a0c;
-  --bg-card: rgba(20, 20, 24, 0.72);
-  --bg-card-hover: rgba(30, 30, 36, 0.88);
-  --bg-card-elevated: rgba(24, 24, 30, 0.94);
-  --bg-glass: rgba(12, 12, 16, 0.82);
-  --bg-terminal: #050507;
+  /* Color Palette — Deep Pitch Black, Dark Charcoal & Frosted Obsidian */
+  --bg-dark: #050508;
+  --bg-dark-secondary: #0a0a0f;
+  --bg-card: rgba(18, 18, 24, 0.75);
+  --bg-card-hover: rgba(28, 28, 36, 0.88);
+  --bg-card-elevated: rgba(24, 24, 32, 0.94);
+  --bg-glass: rgba(12, 12, 18, 0.82);
+  --bg-terminal: #07070b;
 
-  /* Pure Monochrome Accents — Crisp White, Polished Silver, Subtle Platinum */
-  --accent-white: #ffffff;
-  --accent-silver: #e2e8f0;
-  --accent-platinum: #f8fafc;
-  --accent-glow-white: rgba(255, 255, 255, 0.22);
-  --accent-subtle-white: rgba(255, 255, 255, 0.08);
+  /* Accent Colors — Dark Crimson Red, Ruby Scarlet, High-Contrast White */
+  --accent-red: #e11d48;
+  --accent-red-hover: #f43f5e;
+  --accent-red-glow: rgba(225, 29, 72, 0.32);
+  --accent-red-subtle: rgba(225, 29, 72, 0.12);
+  --accent-red-dark: #9f1239;
 
-  /* Mapped Core Accents to Monochrome Hierarchy */
-  --accent-cyan: #ffffff;
-  --accent-cyan-glow: rgba(255, 255, 255, 0.22);
-  --accent-cyan-subtle: rgba(255, 255, 255, 0.08);
+  /* Mapped Core Accents */
+  --accent-cyan: #e11d48;
+  --accent-cyan-glow: rgba(225, 29, 72, 0.32);
+  --accent-cyan-subtle: rgba(225, 29, 72, 0.12);
   
-  --accent-blue: #e2e8f0;
-  --accent-blue-glow: rgba(255, 255, 255, 0.2);
-  --accent-blue-subtle: rgba(255, 255, 255, 0.06);
+  --accent-blue: #ffffff;
+  --accent-blue-glow: rgba(255, 255, 255, 0.22);
+  --accent-blue-subtle: rgba(255, 255, 255, 0.08);
 
-  --accent-indigo: #cbd5e1;
-  --accent-indigo-glow: rgba(255, 255, 255, 0.18);
+  --accent-indigo: #fb7185;
+  --accent-indigo-glow: rgba(251, 113, 133, 0.25);
   
   --accent-emerald: #ffffff;
-  --accent-emerald-glow: rgba(255, 255, 255, 0.2);
+  --accent-emerald-glow: rgba(255, 255, 255, 0.22);
   --accent-emerald-subtle: rgba(255, 255, 255, 0.08);
 
-  --accent-purple: #e2e8f0;
-  --accent-amber: #cbd5e1;
+  --accent-purple: #f43f5e;
+  --accent-amber: #fda4af;
 
   /* Neutral Text Hierarchy — Pure High-Contrast White & Crisp Silvers */
   --text-main: #ffffff;
   --text-body: #e2e8f0;
   --text-muted: #94a3b8;
   --text-subtle: #64748b;
-  --text-dark: #000000;
+  --text-dark: #050508;
 
   /* Border & Grid Colors */
   --border-subtle: rgba(255, 255, 255, 0.09);
   --border-medium: rgba(255, 255, 255, 0.18);
-  --border-glow: rgba(255, 255, 255, 0.35);
-  --border-blue: rgba(255, 255, 255, 0.2);
+  --border-glow: rgba(225, 29, 72, 0.42);
+  --border-blue: rgba(255, 255, 255, 0.25);
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -59,8 +59,8 @@
   --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.6);
   --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.75), 0 8px 10px -6px rgba(0, 0, 0, 0.65);
   --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.95);
-  --shadow-glow: 0 0 24px rgba(255, 255, 255, 0.12);
-  --shadow-glow-blue: 0 0 24px rgba(255, 255, 255, 0.12);
+  --shadow-glow: 0 0 26px rgba(225, 29, 72, 0.24);
+  --shadow-glow-blue: 0 0 26px rgba(255, 255, 255, 0.12);
 
   /* Layout & Transitions */
   --radius-xs: 4px;
