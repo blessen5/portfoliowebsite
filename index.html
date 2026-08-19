@@ -29,7 +29,7 @@
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Structured Data JSON-LD (Person Schema) -->
   <script type="application/ld+json">
@@ -63,6 +63,9 @@
   </script>
 </head>
 <body>
+
+  <!-- Dynamic Color Bends Background Canvas -->
+  <canvas id="color-bends-canvas" aria-hidden="true"></canvas>
 
   <!-- Accessible Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -205,7 +208,7 @@
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="section-padding" style="background: rgba(13, 19, 31, 0.35); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <section id="about" class="section-padding" style="border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
       <div class="container">
         <div class="section-header">
           <div class="section-tag">01 // ABOUT ME</div>
@@ -227,7 +230,7 @@
           <div class="glass-card glass-card-interactive reveal-on-scroll delay-100" style="display: flex; flex-direction: column;">
             <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan); letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
               <span>01 — FOUNDATIONS</span>
-              <span style="font-size: 1.2rem;">🎓</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
             </div>
             <h3 style="font-size: 1.25rem; margin-bottom: 0.65rem; color: var(--text-main);">Computer Science Grounding</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; flex-grow: 1;">
@@ -239,7 +242,7 @@
           <div class="glass-card glass-card-interactive reveal-on-scroll delay-200" style="display: flex; flex-direction: column;">
             <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-blue); letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
               <span>02 — CORE FOCUS</span>
-              <span style="font-size: 1.2rem;">⚡</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
             </div>
             <h3 style="font-size: 1.25rem; margin-bottom: 0.65rem; color: var(--text-main);">Software & Analytics Specialization</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; margin-bottom: 1rem;">
@@ -259,7 +262,7 @@
           <div class="glass-card glass-card-interactive reveal-on-scroll delay-300" style="display: flex; flex-direction: column;">
             <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-emerald); letter-spacing: 0.08em; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: space-between;">
               <span>03 — METHODOLOGY</span>
-              <span style="font-size: 1.2rem;">🛠️</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
             </div>
             <h3 style="font-size: 1.25rem; margin-bottom: 0.65rem; color: var(--text-main);">Learning by Building</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; flex-grow: 1;">
@@ -295,15 +298,15 @@
             </div>
             <div class="skill-tags">
               <div class="skill-tag">
-                <span>🐍 Python</span>
+                <span>Python</span>
                 <span style="font-size: 0.68rem; color: var(--accent-cyan); background: var(--accent-cyan-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">Primary</span>
               </div>
               <div class="skill-tag">
-                <span>☕ Java</span>
+                <span>Java</span>
                 <span style="font-size: 0.68rem; color: var(--text-muted); background: rgba(255, 255, 255, 0.05); padding: 0.1rem 0.4rem; border-radius: 4px;">OOP Core</span>
               </div>
               <div class="skill-tag">
-                <span>🗄️ SQL</span>
+                <span>SQL</span>
                 <span style="font-size: 0.68rem; color: var(--accent-blue); background: var(--accent-blue-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">Active</span>
               </div>
             </div>
@@ -322,19 +325,19 @@
             </div>
             <div class="skill-tags">
               <div class="skill-tag">
-                <span>📊 SQL Queries & Joins</span>
+                <span>SQL Queries & Joins</span>
                 <span style="font-size: 0.68rem; color: var(--accent-blue); background: var(--accent-blue-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">Core</span>
               </div>
               <div class="skill-tag">
-                <span>🐬 MySQL</span>
+                <span>MySQL</span>
                 <span style="font-size: 0.68rem; color: var(--accent-amber); background: rgba(251, 191, 36, 0.1); padding: 0.1rem 0.4rem; border-radius: 4px;">RDBMS</span>
               </div>
               <div class="skill-tag">
-                <span>🏛️ Oracle SQL</span>
+                <span>Oracle SQL</span>
                 <span style="font-size: 0.68rem; color: var(--text-muted); background: rgba(255, 255, 255, 0.05); padding: 0.1rem 0.4rem; border-radius: 4px;">Academic</span>
               </div>
               <div class="skill-tag">
-                <span>📈 Data Analysis Concepts</span>
+                <span>Data Analysis Concepts</span>
                 <span style="font-size: 0.68rem; color: var(--accent-cyan); background: var(--accent-cyan-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">MSc Focus</span>
               </div>
             </div>
@@ -353,19 +356,19 @@
             </div>
             <div class="skill-tags">
               <div class="skill-tag">
-                <span>⚡ JavaScript</span>
+                <span>JavaScript</span>
                 <span style="font-size: 0.68rem; color: var(--accent-cyan); background: var(--accent-cyan-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">ES6+</span>
               </div>
               <div class="skill-tag">
-                <span>🎨 HTML5 & CSS3</span>
+                <span>HTML5 & CSS3</span>
                 <span style="font-size: 0.68rem; color: var(--accent-blue); background: var(--accent-blue-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">Standard</span>
               </div>
               <div class="skill-tag">
-                <span>🐘 PHP</span>
+                <span>PHP</span>
                 <span style="font-size: 0.68rem; color: var(--text-muted); background: rgba(255, 255, 255, 0.05); padding: 0.1rem 0.4rem; border-radius: 4px;">Server logic</span>
               </div>
               <div class="skill-tag">
-                <span>🔌 REST APIs</span>
+                <span>REST APIs</span>
                 <span style="font-size: 0.68rem; color: var(--accent-indigo); background: rgba(129, 140, 248, 0.1); padding: 0.1rem 0.4rem; border-radius: 4px;">Integration</span>
               </div>
             </div>
@@ -384,23 +387,23 @@
             </div>
             <div class="skill-tags">
               <div class="skill-tag">
-                <span>🐧 Linux (Bash)</span>
+                <span>Linux (Bash)</span>
                 <span style="font-size: 0.68rem; color: var(--accent-cyan); background: var(--accent-cyan-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">Active</span>
               </div>
               <div class="skill-tag">
-                <span>🐳 Docker</span>
+                <span>Docker</span>
                 <span style="font-size: 0.68rem; color: var(--accent-emerald); background: var(--accent-emerald-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">Active</span>
               </div>
               <div class="skill-tag">
-                <span>🌿 Git & GitHub</span>
+                <span>Git & GitHub</span>
                 <span style="font-size: 0.68rem; color: var(--accent-blue); background: var(--accent-blue-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">VCS</span>
               </div>
               <div class="skill-tag">
-                <span>☁️ Cloud Fundamentals</span>
+                <span>Cloud Fundamentals</span>
                 <span style="font-size: 0.68rem; color: var(--accent-emerald); background: var(--accent-emerald-subtle); padding: 0.1rem 0.4rem; border-radius: 4px;">Active Study</span>
               </div>
               <div class="skill-tag">
-                <span>💻 WSL</span>
+                <span>WSL</span>
                 <span style="font-size: 0.68rem; color: var(--text-muted); background: rgba(255, 255, 255, 0.05); padding: 0.1rem 0.4rem; border-radius: 4px;">Dev Env</span>
               </div>
             </div>
@@ -411,7 +414,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section-padding" style="background: rgba(13, 19, 31, 0.35); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <section id="projects" class="section-padding" style="border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
       <div class="container">
         <div class="section-header">
           <div class="section-tag">03 // PROJECT SHOWCASE</div>
@@ -526,7 +529,7 @@
     </section>
 
     <!-- Certifications & Courses Section -->
-    <section id="certificates" class="section-padding" style="background: rgba(13, 19, 31, 0.25); border-top: 1px solid var(--border-subtle);">
+    <section id="certificates" class="section-padding" style="border-top: 1px solid var(--border-subtle);">
       <div class="container">
         <div class="section-header">
           <div class="section-tag">05 // CERTIFICATIONS</div>
@@ -650,7 +653,7 @@
     </section>
 
     <!-- Currently Learning Section -->
-    <section id="learning" class="section-padding" style="background: rgba(13, 19, 31, 0.35); border-top: 1px solid var(--border-subtle);">
+    <section id="learning" class="section-padding" style="border-top: 1px solid var(--border-subtle);">
       <div class="container">
         
         <div class="section-header">
@@ -676,7 +679,7 @@
               <span class="roadmap-arrow">→</span>
               <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: space-between;">
                 <span>STEP 01</span>
-                <span>📚</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
               </div>
               <h4 style="font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--text-main);">LEARN</h4>
               <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; flex-grow: 1;">
@@ -689,7 +692,7 @@
               <span class="roadmap-arrow">→</span>
               <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-blue); font-weight: 700; margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: space-between;">
                 <span>STEP 02</span>
-                <span>🛠️</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               </div>
               <h4 style="font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--text-main);">BUILD</h4>
               <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; flex-grow: 1;">
@@ -702,7 +705,7 @@
               <span class="roadmap-arrow">→</span>
               <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-indigo); font-weight: 700; margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: space-between;">
                 <span>STEP 03</span>
-                <span>🧪</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31"></path><path d="M14 9.3V2"></path><path d="M8.5 2h7"></path><path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path><path d="M5.52 16h12.96"></path></svg>
               </div>
               <h4 style="font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--text-main);">EXPERIMENT</h4>
               <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; flex-grow: 1;">
@@ -714,7 +717,7 @@
             <div class="roadmap-card reveal-on-scroll delay-300">
               <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-emerald); font-weight: 700; margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: space-between;">
                 <span>STEP 04</span>
-                <span>🚀</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
               </div>
               <h4 style="font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--text-main);">IMPROVE</h4>
               <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; flex-grow: 1;">
@@ -737,8 +740,8 @@
             
             <div class="glass-card glass-card-interactive reveal-on-scroll" style="padding: 1.25rem; border-left: 3px solid var(--accent-cyan);">
               <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem;">
-                <span style="font-size: 1.3rem;">🐍</span>
-                <h4 style="font-size: 1.1rem; color: var(--text-main);">Python</h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <h4 style="font-size: 1.05rem; color: var(--text-main);">Python</h4>
               </div>
               <p style="color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; margin: 0;">
                 Writing automation scripts, testing API endpoints, and implementing data analysis algorithms.
@@ -747,8 +750,8 @@
 
             <div class="glass-card glass-card-interactive reveal-on-scroll delay-100" style="padding: 1.25rem; border-left: 3px solid var(--accent-blue);">
               <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem;">
-                <span style="font-size: 1.3rem;">🗄️</span>
-                <h4 style="font-size: 1.1rem; color: var(--text-main);">SQL & Data Analytics</h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                <h4 style="font-size: 1.05rem; color: var(--text-main);">SQL & Data Analytics</h4>
               </div>
               <p style="color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; margin: 0;">
                 Designing relational schemas, optimizing multi-table SQL queries, and analyzing datasets.
@@ -757,8 +760,8 @@
 
             <div class="glass-card glass-card-interactive reveal-on-scroll delay-200" style="padding: 1.25rem; border-left: 3px solid var(--accent-cyan);">
               <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem;">
-                <span style="font-size: 1.3rem;">🐧</span>
-                <h4 style="font-size: 1.1rem; color: var(--text-main);">Linux Systems</h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                <h4 style="font-size: 1.05rem; color: var(--text-main);">Linux Systems</h4>
               </div>
               <p style="color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; margin: 0;">
                 Command-line environment navigation, shell scripting (Bash), and process administration.
@@ -767,8 +770,8 @@
 
             <div class="glass-card glass-card-interactive reveal-on-scroll delay-300" style="padding: 1.25rem; border-left: 3px solid var(--accent-emerald);">
               <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem;">
-                <span style="font-size: 1.3rem;">🐳</span>
-                <h4 style="font-size: 1.1rem; color: var(--text-main);">Docker</h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                <h4 style="font-size: 1.05rem; color: var(--text-main);">Docker</h4>
               </div>
               <p style="color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; margin: 0;">
                 Writing Dockerfiles, containerizing local services, and managing multi-container setups.
@@ -777,8 +780,8 @@
 
             <div class="glass-card glass-card-interactive reveal-on-scroll delay-400" style="padding: 1.25rem; border-left: 3px solid var(--accent-blue);">
               <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem;">
-                <span style="font-size: 1.3rem;">☁️</span>
-                <h4 style="font-size: 1.1rem; color: var(--text-main);">Cloud Computing</h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2"><cloud></cloud><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
+                <h4 style="font-size: 1.05rem; color: var(--text-main);">Cloud Computing</h4>
               </div>
               <p style="color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; margin: 0;">
                 Studying core cloud concepts, virtual machines, networking protocols, and web services.
@@ -787,8 +790,8 @@
 
             <div class="glass-card glass-card-interactive reveal-on-scroll delay-500" style="padding: 1.25rem; border-left: 3px solid var(--accent-indigo);">
               <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem;">
-                <span style="font-size: 1.3rem;">💻</span>
-                <h4 style="font-size: 1.1rem; color: var(--text-main);">Software Engineering</h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-indigo)" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                <h4 style="font-size: 1.05rem; color: var(--text-main);">Software Engineering</h4>
               </div>
               <p style="color: var(--text-muted); font-size: 0.86rem; line-height: 1.5; margin: 0;">
                 Practicing object-oriented programming, clean code principles, and problem solving.
@@ -802,7 +805,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding" style="background: rgba(13, 19, 31, 0.4); border-top: 1px solid var(--border-subtle);">
+    <section id="contact" class="section-padding" style="border-top: 1px solid var(--border-subtle);">
       <div class="container">
         
         <div class="section-header">

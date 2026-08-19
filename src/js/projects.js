@@ -88,7 +88,7 @@ export function initProjects() {
             ${featuredProject.summary}
           </p>
 
-          <div style="background: rgba(13, 19, 31, 0.85); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
+          <div style="background: var(--bg-card); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
             <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); margin-bottom: 0.25rem; font-weight: 700;">PROBLEM SOLVED:</div>
             <div style="color: var(--text-body); font-size: 0.92rem; line-height: 1.5;">${featuredProject.problemSolved}</div>
           </div>
@@ -130,7 +130,7 @@ export function initProjects() {
         
         <p class="project-desc">${project.summary}</p>
 
-        <div style="background: rgba(13, 19, 31, 0.7); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border-left: 2px solid var(--accent-blue); margin-bottom: 1.25rem;">
+        <div style="background: var(--bg-card); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border-left: 2px solid var(--accent-blue); margin-bottom: 1.25rem;">
           <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--accent-blue); font-weight: 700; margin-bottom: 0.15rem;">PROBLEM SOLVED:</div>
           <div style="color: var(--text-body); font-size: 0.85rem; line-height: 1.45;">${project.problemSolved}</div>
         </div>
@@ -206,7 +206,7 @@ export function initProjects() {
         ${project.tags.map(t => `<span class="tech-badge" style="background: var(--accent-cyan-subtle); border-color: rgba(0, 245, 212, 0.3); color: var(--accent-cyan); font-size: 0.82rem;">${t}</span>`).join('')}
       </div>
 
-      <div style="background: rgba(13, 19, 31, 0.85); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
+      <div style="background: var(--bg-card); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
         <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.25rem;">PROBLEM SOLVED:</div>
         <div style="color: var(--text-body); font-size: 0.92rem; line-height: 1.5;">${project.problemSolved}</div>
       </div>

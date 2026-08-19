@@ -23,29 +23,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle Technical Background Grid & Data Mesh */
-body::before {
-  content: '';
+/* Full-Screen Animated Color Bends Background Canvas */
+#color-bends-canvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: 
-    radial-gradient(circle at 10% 10%, rgba(0, 245, 212, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 90% 90%, rgba(56, 189, 248, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.02) 0%, transparent 60%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
   pointer-events: none;
   z-index: -1;
+  opacity: 0.85;
 }
 
 /* Text Selection */
 ::selection {
-  background-color: var(--accent-cyan-glow);
-  color: var(--accent-cyan);
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }
 
 /* Custom Scrollbars */
@@ -56,11 +49,11 @@ body::before {
   background: var(--bg-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 245, 212, 0.5);
+  background: rgba(255, 255, 255, 0.45);
 }
 
 /* Typography Defaults */

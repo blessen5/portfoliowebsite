@@ -9,9 +9,11 @@ import { initTerminal } from './terminal.js';
 import { initCommandPalette } from './command-palette.js';
 import { initProjects } from './projects.js';
 import { initScrollEffects } from './scroll-effects.js';
+import { initColorBends } from './color-bends.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize modular features
+  initColorBends();
   initTerminal();
   initCommandPalette();
   initProjects();
