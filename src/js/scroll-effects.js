@@ -5,27 +5,25 @@ export function initScrollEffects() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  // Throttled scroll listener using requestAnimationFrame
   let isTicking = false;
 
   const handleScroll = () => {
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
       navbar?.classList.add('scrolled');
     } else {
       navbar?.classList.remove('scrolled');
     }
 
-    // Update active nav link based on scroll position
     let currentSectionId = 'hero';
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 150;
+      const sectionTop = section.offsetTop - 140;
       const sectionHeight = section.offsetHeight;
       if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
         currentSectionId = section.getAttribute('id') || 'hero';
       }
     });
 
-    if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
+    if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 40) {
       const lastSection = sections[sections.length - 1];
       if (lastSection) {
         currentSectionId = lastSection.getAttribute('id') || currentSectionId;
@@ -50,13 +48,12 @@ export function initScrollEffects() {
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  handleScroll(); // Initial check on load
+  handleScroll();
 
-  // IntersectionObserver for reveal-on-scroll elements
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.15
+    threshold: 0.12
   };
 
   const revealObserver = new IntersectionObserver((entries, observer) => {

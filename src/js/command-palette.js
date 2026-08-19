@@ -4,13 +4,16 @@ const PALETTE_ITEMS = [
   { title: 'Go to Hero / Top', sectionId: 'hero', category: 'Navigation', icon: '🏠' },
   { title: 'Go to About Me', sectionId: 'about', category: 'Navigation', icon: '👤' },
   { title: 'Go to Technical Skills', sectionId: 'skills', category: 'Navigation', icon: '⚡' },
-  { title: 'Go to Featured Projects', sectionId: 'projects', category: 'Navigation', icon: '🚀' },
+  { title: 'Go to Projects & Portfolio', sectionId: 'projects', category: 'Navigation', icon: '🚀' },
   { title: 'Go to Education & Degree', sectionId: 'education', category: 'Navigation', icon: '🎓' },
   { title: 'Go to Certifications & Courses', sectionId: 'certificates', category: 'Navigation', icon: '📜' },
-  { title: 'Go to Learning & Growth', sectionId: 'learning', category: 'Navigation', icon: '🌱' },
+  { title: 'Go to Currently Learning', sectionId: 'learning', category: 'Navigation', icon: '🌱' },
   { title: 'Go to Contact Form', sectionId: 'contact', category: 'Navigation', icon: '✉️' },
-  { title: 'Execute Terminal command: docker ps', action: 'cli:docker ps', category: 'CLI Action', icon: '🐳' },
-  { title: 'Execute Terminal command: skills', action: 'cli:skills', category: 'CLI Action', icon: '💻' },
+  { title: 'Run Terminal: skills', action: 'cli:skills', category: 'CLI Command', icon: '💻' },
+  { title: 'Run Terminal: projects', action: 'cli:projects', category: 'CLI Command', icon: '🛠️' },
+  { title: 'Run Terminal: education', action: 'cli:education', category: 'CLI Command', icon: '🎓' },
+  { title: 'Open GitHub Profile', action: 'url:https://github.com/blessen5', category: 'External', icon: '🐙' },
+  { title: 'Open LinkedIn Profile', action: 'url:https://www.linkedin.com/in/blessen-p-shaju', category: 'External', icon: '💼' },
   { title: 'Send Direct Email', action: 'mailto:blessenpshaju@gmail.com', category: 'Contact', icon: '📧' }
 ];
 
@@ -28,7 +31,7 @@ export function initCommandPalette() {
     backdrop.classList.add('active');
     input.value = '';
     renderItems(PALETTE_ITEMS);
-    setTimeout(() => input.focus(), 50);
+    setTimeout(() => input.focus(), 40);
   }
 
   function closePalette() {
@@ -41,7 +44,7 @@ export function initCommandPalette() {
     resultsContainer.innerHTML = '';
 
     if (items.length === 0) {
-      resultsContainer.innerHTML = `<div style="padding: 1rem; color: var(--text-muted); text-align: center; font-size: 0.9rem;">No commands found</div>`;
+      resultsContainer.innerHTML = `<div style="padding: 1rem; color: var(--text-muted); text-align: center; font-size: 0.88rem;">No matching commands found</div>`;
       return;
     }
 
@@ -74,13 +77,14 @@ export function initCommandPalette() {
           termInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
           document.getElementById('terminal-window')?.scrollIntoView({ behavior: 'smooth' });
         }
+      } else if (item.action.startsWith('url:')) {
+        window.open(item.action.replace('url:', ''), '_blank', 'noopener,noreferrer');
       } else if (item.action.startsWith('mailto:')) {
         window.location.href = item.action;
       }
     }
   }
 
-  // Keyboard events
   window.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
@@ -106,12 +110,16 @@ export function initCommandPalette() {
     const items = resultsContainer.querySelectorAll('.command-item');
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      selectedIndex = (selectedIndex + 1) % items.length;
-      updateSelection(items);
+      if (items.length > 0) {
+        selectedIndex = (selectedIndex + 1) % items.length;
+        updateSelection(items);
+      }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      selectedIndex = (selectedIndex - 1 + items.length) % items.length;
-      updateSelection(items);
+      if (items.length > 0) {
+        selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+        updateSelection(items);
+      }
     } else if (e.key === 'Enter' && filteredItems[selectedIndex]) {
       e.preventDefault();
       executeItem(filteredItems[selectedIndex]);

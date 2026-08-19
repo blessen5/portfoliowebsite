@@ -1,14 +1,14 @@
-/* Keyframe Animations & Scroll Reveal Effects */
+/* Animations & Micro-interactions — Modern Developer + Data Analytics */
 
 /* Dot Pulse Animation */
 @keyframes pulse-dot {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
   }
   70% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
   }
   100% {
     transform: scale(0.95);
@@ -25,38 +25,28 @@
 .terminal-cursor {
   display: inline-block;
   width: 8px;
-  height: 16px;
+  height: 15px;
   background-color: var(--accent-cyan);
   vertical-align: middle;
   margin-left: 2px;
   animation: blink 1s step-start infinite;
 }
 
-/* Cyber Glow Ambient Animation */
-@keyframes cyber-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 245, 212, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 35px rgba(59, 130, 246, 0.3);
-  }
-}
-
-/* Floating animation for decorative elements */
+/* Float Animation */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 4.5s ease-in-out infinite;
 }
 
-/* Scroll Reveal Classes (Driven by IntersectionObserver in JS) */
+/* Scroll Reveal Classes (Driven by IntersectionObserver) */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -65,14 +55,13 @@
   transform: translateY(0);
 }
 
-/* Delay modifiers for staggered reveals */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
-.delay-500 { transition-delay: 500ms; }
+.delay-100 { transition-delay: 80ms; }
+.delay-200 { transition-delay: 160ms; }
+.delay-300 { transition-delay: 240ms; }
+.delay-400 { transition-delay: 320ms; }
+.delay-500 { transition-delay: 400ms; }
 
-/* Prefers Reduced Motion Accessibility Override */
+/* Prefers Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

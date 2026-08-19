@@ -1,54 +1,69 @@
-/* Design Tokens & Theme System */
+/* Design Tokens & Theme System — Modern Developer + Data Analytics */
 :root {
-  /* Color Palette */
-  --bg-dark: #090d16;
-  --bg-card: rgba(17, 24, 39, 0.7);
-  --bg-card-hover: rgba(30, 41, 59, 0.8);
-  --bg-glass: rgba(15, 23, 42, 0.65);
+  /* Color Palette — Obsidian & Deep Slate Dark Theme */
+  --bg-dark: #080c14;
+  --bg-dark-secondary: #0d131f;
+  --bg-card: rgba(13, 19, 31, 0.72);
+  --bg-card-hover: rgba(22, 32, 50, 0.85);
+  --bg-card-elevated: rgba(18, 26, 43, 0.9);
+  --bg-glass: rgba(11, 17, 28, 0.75);
   --bg-terminal: #070a10;
 
-  /* Accent Colors */
+  /* Accent Colors — Technical Cyan, Analytics Indigo/Blue, Systems Emerald */
   --accent-cyan: #00f5d4;
-  --accent-cyan-glow: rgba(0, 245, 212, 0.3);
-  --accent-blue: #3b82f6;
-  --accent-blue-glow: rgba(59, 130, 246, 0.3);
+  --accent-cyan-glow: rgba(0, 245, 212, 0.25);
+  --accent-cyan-subtle: rgba(0, 245, 212, 0.08);
+  
+  --accent-blue: #38bdf8;
+  --accent-blue-glow: rgba(56, 189, 248, 0.25);
+  --accent-blue-subtle: rgba(56, 189, 248, 0.08);
+
+  --accent-indigo: #818cf8;
+  --accent-indigo-glow: rgba(129, 140, 248, 0.25);
+  
   --accent-emerald: #10b981;
-  --accent-purple: #a855f7;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+  --accent-emerald-subtle: rgba(16, 185, 129, 0.08);
 
-  /* Neutral Text Colors */
+  --accent-purple: #c084fc;
+  --accent-amber: #fbbf24;
+
+  /* Neutral Text Hierarchy */
   --text-main: #f8fafc;
+  --text-body: #cbd5e1;
   --text-muted: #94a3b8;
-  --text-subtle: #8b9cb3;
-  --text-dark: #0f172a;
+  --text-subtle: #64748b;
+  --text-dark: #070a10;
 
-  /* Status Colors */
-  --color-success: #10b981;
-  --color-warning: #eab308;
-  --color-error: #f87171;
-
-  /* Border & Line Colors */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(0, 245, 212, 0.4);
-  --border-blue: rgba(59, 130, 246, 0.4);
+  /* Border & Grid Colors */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(0, 245, 212, 0.35);
+  --border-blue: rgba(56, 189, 248, 0.35);
 
   /* Typography */
-  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace, SFMono-Regular;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Glassmorphism & Shadow Effects */
+  /* Glassmorphism & Elevation */
   --backdrop-blur: blur(16px);
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 25px rgba(0, 245, 212, 0.15);
-  --shadow-glow-blue: 0 0 25px rgba(59, 130, 246, 0.15);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --backdrop-blur-heavy: blur(24px);
+  --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 24px rgba(0, 245, 212, 0.12);
+  --shadow-glow-blue: 0 0 24px rgba(56, 189, 248, 0.12);
 
   /* Layout & Transitions */
+  --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-spring: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

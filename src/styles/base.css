@@ -1,4 +1,4 @@
-/* Base CSS & Reset */
+/* Base CSS, Reset & Global Theme */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -13,9 +13,9 @@ html {
 
 body {
   background-color: var(--bg-dark);
-  color: var(--text-main);
+  color: var(--text-body);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
@@ -23,7 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Background Cyber Mesh & Grid Overlay */
+/* Subtle Technical Background Grid & Data Mesh */
 body::before {
   content: '';
   position: fixed;
@@ -32,22 +32,23 @@ body::before {
   width: 100vw;
   height: 100vh;
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(0, 245, 212, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.06) 0%, transparent 45%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    radial-gradient(circle at 10% 10%, rgba(0, 245, 212, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(56, 189, 248, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.02) 0%, transparent 60%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
   pointer-events: none;
   z-index: -1;
 }
 
-/* Selection Highlight */
+/* Text Selection */
 ::selection {
   background-color: var(--accent-cyan-glow);
   color: var(--accent-cyan);
 }
 
-/* Scrollbar Customization */
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -55,18 +56,18 @@ body::before {
   background: var(--bg-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-cyan);
+  background: rgba(0, 245, 212, 0.5);
 }
 
 /* Typography Defaults */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(--text-main);
   letter-spacing: -0.02em;
 }
@@ -74,48 +75,48 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 ul {
   list-style: none;
 }
 
-button, input, textarea {
+button, input, textarea, select {
   font-family: inherit;
   font-size: inherit;
   border: none;
   background: none;
 }
 
-/* Accessible Focus Ring for Keyboard Users */
+/* Accessible Focus States */
 :focus-visible {
   outline: 2px solid var(--accent-cyan);
   outline-offset: 3px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-xs);
 }
 
 /* Accessible Skip Link */
 .skip-link {
   position: absolute;
   top: -100px;
-  left: 1rem;
+  left: 1.25rem;
   background: var(--accent-cyan);
   color: var(--text-dark);
-  padding: 0.75rem 1.25rem;
+  padding: 0.65rem 1.25rem;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 0.9rem;
-  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
   z-index: 9999;
   transition: top var(--transition-fast);
 }
 
 .skip-link:focus {
-  top: 1rem;
+  top: 1.25rem;
 }
 
-/* Section Container Utilities */
+/* Layout Container & Section Utilities */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -124,7 +125,7 @@ button, input, textarea {
 }
 
 .section-padding {
-  padding: 6rem 0;
+  padding: 6.5rem 0;
 }
 
 .section-header {
@@ -137,33 +138,32 @@ button, input, textarea {
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--accent-cyan);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   padding: 0.35rem 0.85rem;
-  background: rgba(0, 245, 212, 0.08);
+  background: var(--accent-cyan-subtle);
   border: 1px solid rgba(0, 245, 212, 0.2);
   border-radius: var(--radius-full);
   margin-bottom: 1rem;
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ffffff 30%, var(--text-muted) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-main);
+  letter-spacing: -0.03em;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
-  max-width: 650px;
+  max-width: 680px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 section[id] {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 90px;
 }

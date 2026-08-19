@@ -1,36 +1,36 @@
-/* Interactive CLI / Terminal Emulator Logic with Auto-Typing sequence */
+/* Interactive CLI / Terminal Emulator Logic with Developer & Data Analytics commands */
 
 const COMMANDS = {
-  whoami: `<span class="cmd-success">Blessen P Shaju</span>`,
+  whoami: `<span class="cmd-success">Blessen P Shaju</span> — Computer Science Graduate & MSc CS Postgraduate Student`,
 
-  focus: `<span class="cmd-info">Software | Cloud | DevOps</span>`,
+  focus: `<span class="cmd-info">Software Development • Data Analytics • Cloud & DevOps Infrastructure</span>`,
 
-  status: `<span class="cmd-emerald">Learning • Building • Improving</span>`,
+  status: `<span class="cmd-emerald">Active MSc Student • Building Full-Stack Software • Exploring Cloud & Linux Systems</span>`,
 
   help: `Available Commands:
-  • <span class="cmd-info">whoami</span>     : Display identity
-  • <span class="cmd-info">focus</span>      : Display target developer domains
-  • <span class="cmd-info">status</span>     : Current learning & building state
-  • <span class="cmd-info">skills</span>     : Technical stack (Python, Linux, Docker, Cloud)
-  • <span class="cmd-info">projects</span>   : Featured projects & code repositories
-  • <span class="cmd-info">education</span>  : Academic background (BSc CS, MG University)
-  • <span class="cmd-info">contact</span>    : Direct email & profile links
-  • <span class="cmd-info">clear</span>      : Clear terminal screen`,
+  • <span class="cmd-info">whoami</span>     : Display identity & academic profile
+  • <span class="cmd-info">focus</span>      : Display core technical specializations
+  • <span class="cmd-info">status</span>     : Current learning and project status
+  • <span class="cmd-info">skills</span>     : Core technical tooling (Python, SQL, Linux, Docker)
+  • <span class="cmd-info">projects</span>   : Featured software and data projects
+  • <span class="cmd-info">education</span>  : Academic background (BSc CS Graduate, MSc CS Pursuing)
+  • <span class="cmd-info">contact</span>    : Direct channels (Email, GitHub, LinkedIn)
+  • <span class="cmd-info">clear</span>      : Clear the terminal screen`,
 
   skills: `Core Technical Stack:
-  [Languages] : Python 3, C/C++, JavaScript, Bash, HTML/CSS, SQL
-  [DevOps]    : Docker, Docker Compose, Linux Admin, Git, CI/CD Concepts
-  [Cloud]     : Cloud Fundamentals, REST APIs, Networking (TCP/IP, HTTP)`,
+  [Programming]   : Python, Java, SQL, JavaScript (ES6+), HTML5, CSS3, PHP
+  [Data & DBMS]   : SQL, Relational DBMS (MySQL, Oracle SQL), Data Analysis Concepts
+  [DevOps/Cloud]  : Linux (Bash), Docker, Git/GitHub, Cloud Fundamentals, WSL`,
 
   projects: `Featured Projects:
-  1. Dockerized Microservice Lab (Nginx, FastAPI, Redis)
-  2. Automated Linux System Monitor (Python, psutil, Webhooks)
-  3. Cloud Infrastructure Cost Calculator (Interactive Web App)
-  4. Student Analytics System (BSc CS Academic DBMS Project)`,
+  1. Lab Activity Reporting System (LARS) [PHP, MySQL, Web Portal]
+  2. RigMasterAI [Python, AI/ML APIs, Automation, Live Demo]`,
 
-  education: `<span class="cmd-success">Bachelor of Science in Computer Science (BSc CS)</span>
-University : Mahatma Gandhi University, Kottayam, Kerala
-Focus      : Data Structures, Operating Systems, Networks, DBMS, Software Engineering`,
+  education: `<span class="cmd-success">1. MSc Computer Science (Currently Pursuing)</span>
+   Institution : Rajagiri College of Social Sciences, Kerala
+<span class="cmd-success">2. BSc Computer Science (Graduate)</span>
+   College     : SSV College, Valayanchirangara
+   University  : Mahatma Gandhi University, Kerala`,
 
   contact: `Direct Contact Channels:
   • Email    : <a href="mailto:blessenpshaju@gmail.com" class="hl-cyan">blessenpshaju@gmail.com</a>
@@ -38,12 +38,8 @@ Focus      : Data Structures, Operating Systems, Networks, DBMS, Software Engine
   • GitHub   : <a href="https://github.com/blessen5" target="_blank" rel="noopener noreferrer" class="hl-cyan">github.com/blessen5</a>`,
 
   docker: `<span class="cmd-info">CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS</span>
-  a1b2c3d4e5f6   nginx:alpine     "/docker-entrypoint.…"   2 hours ago     Up 2 hours     0.0.0.0:80->80/tcp
-  b7c8d9e0f1a2   redis:7-alpine   "docker-entrypoint.s…"   2 hours ago     Up 2 hours     6379/tcp`,
-
-  'docker ps': `<span class="cmd-info">CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS</span>
-  a1b2c3d4e5f6   nginx:alpine     "/docker-entrypoint.…"   2 hours ago     Up 2 hours     0.0.0.0:80->80/tcp
-  b7c8d9e0f1a2   redis:7-alpine   "docker-entrypoint.s…"   2 hours ago     Up 2 hours     6379/tcp`
+  c3d4e5f6a1b2   nginx:alpine     "/docker-entrypoint.…"   3 hours ago     Up 3 hours     0.0.0.0:80->80/tcp
+  f1a2b7c8d9e0   redis:7-alpine   "docker-entrypoint.s…"   3 hours ago     Up 3 hours     6379/tcp`
 };
 
 export function initTerminal() {
@@ -64,37 +60,33 @@ export function initTerminal() {
     terminalBody.innerHTML = '';
 
     for (const step of initialSequence) {
-      // Append prompt line
       const line = document.createElement('div');
       line.className = 'terminal-line';
-      line.innerHTML = `<span class="prompt-symbol">blessen@devops</span>:<span class="prompt-path">~</span>$ <span class="typed-cmd"></span><span class="terminal-cursor"></span>`;
+      line.innerHTML = `<span class="prompt-symbol">blessen@dev</span>:<span class="prompt-path">~</span>$ <span class="typed-cmd"></span><span class="terminal-cursor"></span>`;
       terminalBody.appendChild(line);
 
       const typedSpan = line.querySelector('.typed-cmd');
       const cursor = line.querySelector('.terminal-cursor');
 
-      // Type out command letter by letter
       for (let i = 0; i < step.cmd.length; i++) {
         typedSpan.textContent += step.cmd[i];
-        await sleep(60);
+        await sleep(50);
       }
 
-      await sleep(150);
-      cursor.remove(); // remove cursor from line once typed
+      await sleep(120);
+      cursor.remove();
 
-      // Render output
       const out = document.createElement('div');
       out.className = 'terminal-output';
       out.innerHTML = step.output;
       terminalBody.appendChild(out);
 
-      await sleep(250);
+      await sleep(180);
     }
 
-    // Append active input prompt line
     const activeLine = document.createElement('div');
     activeLine.className = 'terminal-line';
-    activeLine.innerHTML = `<span class="prompt-symbol">blessen@devops</span>:<span class="prompt-path">~</span>$ <span class="terminal-cursor"></span>`;
+    activeLine.innerHTML = `<span class="prompt-symbol">blessen@dev</span>:<span class="prompt-path">~</span>$ <span class="terminal-cursor"></span>`;
     terminalBody.appendChild(activeLine);
     terminalBody.scrollTop = terminalBody.scrollHeight;
   }
@@ -104,12 +96,10 @@ export function initTerminal() {
   function executeCommand(cmdText) {
     const rawCmd = cmdText.trim().toLowerCase();
     
-    // Create prompt line in history
     const commandLine = document.createElement('div');
     commandLine.className = 'terminal-line';
-    commandLine.innerHTML = `<span class="prompt-symbol">blessen@devops</span>:<span class="prompt-path">~</span>$ <span>${escapeHtml(cmdText)}</span>`;
+    commandLine.innerHTML = `<span class="prompt-symbol">blessen@dev</span>:<span class="prompt-path">~</span>$ <span>${escapeHtml(cmdText)}</span>`;
     
-    // Remove standalone active cursor line if present
     const activeCursors = terminalBody.querySelectorAll('.terminal-cursor');
     activeCursors.forEach(c => c.remove());
 
@@ -131,10 +121,9 @@ export function initTerminal() {
       terminalBody.appendChild(errorDiv);
     }
 
-    // Append new active cursor prompt line
     const nextLine = document.createElement('div');
     nextLine.className = 'terminal-line';
-    nextLine.innerHTML = `<span class="prompt-symbol">blessen@devops</span>:<span class="prompt-path">~</span>$ <span class="terminal-cursor"></span>`;
+    nextLine.innerHTML = `<span class="prompt-symbol">blessen@dev</span>:<span class="prompt-path">~</span>$ <span class="terminal-cursor"></span>`;
     terminalBody.appendChild(nextLine);
 
     terminalInput.value = '';

@@ -11,13 +11,13 @@ import { initProjects } from './projects.js';
 import { initScrollEffects } from './scroll-effects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize sub-modules
+  // Initialize modular features
   initTerminal();
   initCommandPalette();
   initProjects();
   initScrollEffects();
 
-  // Mobile nav menu toggle
+  // Mobile navigation drawer controls
   const mobileNavToggle = document.getElementById('mobile-nav-toggle');
   const navLinks = document.getElementById('nav-links');
 
@@ -43,14 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close mobile nav when clicking a link
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       closeMobileNav();
     });
   });
 
-  // Close mobile nav on click outside or Escape key
   document.addEventListener('click', (e) => {
     if (navLinks?.classList.contains('active') && !navLinks.contains(e.target) && e.target !== mobileNavToggle) {
       closeMobileNav();
@@ -63,26 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Interactive mouse spotlight positioning on glass cards
-  function initGlassSpotlights() {
-    document.querySelectorAll('.glass-card').forEach(card => {
-      if (card.dataset.spotlightBound) return;
-      card.dataset.spotlightBound = 'true';
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
-    });
-  }
 
-  window.initGlassSpotlights = initGlassSpotlights;
-  initGlassSpotlights();
-
-
-  // Contact form submission handler with frontend validation
+  // Contact form submission with validation and graceful mailto fallback
   const contactForm = document.getElementById('contact-form');
   const formFeedback = document.getElementById('form-feedback');
 
@@ -96,19 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = emailInput?.value?.trim();
     const message = messageInput?.value?.trim();
 
-    // Frontend validation: Check required fields
     if (!name || !email || !message) {
       if (formFeedback) {
         formFeedback.style.display = 'block';
         formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
         formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
         formFeedback.style.color = '#ef4444';
-        formFeedback.textContent = 'Please fill out all fields before submitting.';
+        formFeedback.textContent = 'Please complete all fields before sending.';
       }
       return;
     }
 
-    // Basic email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       if (formFeedback) {
@@ -116,100 +94,27 @@ document.addEventListener('DOMContentLoaded', () => {
         formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
         formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
         formFeedback.style.color = '#ef4444';
-        formFeedback.textContent = 'Please enter a valid email address.';
+        formFeedback.textContent = 'Please provide a valid email address.';
       }
       return;
     }
 
-    // Set Web3Forms Access Key or Formspree ID here to receive real emails to blessenpshaju@gmail.com
-    // Get free key in 1 minute from https://web3forms.com/ or https://formspree.io/
-    const WEB3FORMS_ACCESS_KEY = ''; // e.g. 'YOUR_ACCESS_KEY_HERE'
-    const FORMSPREE_FORM_ID = '';    // e.g. 'mknlqpxw'
+    // Direct mailto fallback ensuring real message delivery to blessenpshaju@gmail.com
+    const subject = encodeURIComponent(`Portfolio Message from ${name}`);
+    const body = encodeURIComponent(`Sender Name: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`);
+    const mailtoUrl = `mailto:blessenpshaju@gmail.com?subject=${subject}&body=${body}`;
 
     if (formFeedback) {
       formFeedback.style.display = 'block';
-      formFeedback.style.background = 'rgba(59, 130, 246, 0.15)';
-      formFeedback.style.border = '1px solid rgba(59, 130, 246, 0.3)';
-      formFeedback.style.color = 'var(--accent-blue)';
-      formFeedback.textContent = 'Sending message...';
+      formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
+      formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
+      formFeedback.style.color = 'var(--accent-cyan)';
+      formFeedback.textContent = 'Opening your email client to send message to blessenpshaju@gmail.com...';
     }
 
-    if (WEB3FORMS_ACCESS_KEY) {
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ access_key: WEB3FORMS_ACCESS_KEY, name, email, message })
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && formFeedback) {
-          formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
-          formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
-          formFeedback.style.color = 'var(--accent-cyan)';
-          formFeedback.textContent = 'Thank you! Your message has been sent successfully.';
-          contactForm.reset();
-        } else if (formFeedback) {
-          formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
-          formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-          formFeedback.style.color = '#ef4444';
-          formFeedback.textContent = data.message || 'Error sending message. Please try again.';
-        }
-      })
-      .catch(() => {
-        if (formFeedback) {
-          formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
-          formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-          formFeedback.style.color = '#ef4444';
-          formFeedback.textContent = 'Network error. Please try again later.';
-        }
-      });
-    } else if (FORMSPREE_FORM_ID) {
-      fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, message })
-      })
-      .then(res => {
-        if (res.ok && formFeedback) {
-          formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
-          formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
-          formFeedback.style.color = 'var(--accent-cyan)';
-          formFeedback.textContent = 'Thank you! Your message has been sent successfully.';
-          contactForm.reset();
-        } else if (formFeedback) {
-          formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
-          formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-          formFeedback.style.color = '#ef4444';
-          formFeedback.textContent = 'Error sending message. Please try again.';
-        }
-      })
-      .catch(() => {
-        if (formFeedback) {
-          formFeedback.style.background = 'rgba(239, 68, 68, 0.15)';
-          formFeedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-          formFeedback.style.color = '#ef4444';
-          formFeedback.textContent = 'Network error. Please try again later.';
-        }
-      });
-    } else {
-      // Direct mailto fallback ensuring real message delivery to blessenpshaju@gmail.com
-      const subject = encodeURIComponent(`Portfolio Message from ${name}`);
-      const body = encodeURIComponent(`Sender Name: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`);
-      const mailtoUrl = `mailto:blessenpshaju@gmail.com?subject=${subject}&body=${body}`;
-
-      if (formFeedback) {
-        formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
-        formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
-        formFeedback.style.color = 'var(--accent-cyan)';
-        formFeedback.textContent = 'Opening your email client to send message to blessenpshaju@gmail.com...';
-      }
-
-      setTimeout(() => {
-        window.location.href = mailtoUrl;
-        contactForm.reset();
-      }, 500);
-    }
+    setTimeout(() => {
+      window.location.href = mailtoUrl;
+      contactForm.reset();
+    }, 450);
   });
-
-
 });

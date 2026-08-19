@@ -8,19 +8,19 @@ export const PROJECTS = [
     categoryName: 'Academic Project',
     featured: true,
     status: 'Completed Academic Project',
-    summary: 'A web-based academic project designed to manage laboratory activity reporting, attendance information, activity history, and related student functionality.',
-    problemSolved: 'Replaces manual paper-based lab tracking by centralizing attendance logging, activity reporting, and student history into an accessible web platform.',
-    tags: ['PHP', 'HTML', 'CSS', 'JavaScript'],
-    description: `The Lab Activity Reporting System (LARS) is a web-based academic software project created to streamline laboratory management and student reporting.
+    summary: 'A web-based academic software system designed to streamline laboratory management, student activity reporting, attendance tracking, and session histories.',
+    problemSolved: 'Replaces manual paper-based lab records with a structured portal for students and administrators to log, track, and review laboratory sessions efficiently.',
+    tags: ['PHP', 'MySQL', 'HTML5', 'CSS3', 'JavaScript'],
+    description: `The Lab Activity Reporting System (LARS) is a full-featured web-based academic project engineered to manage laboratory sessions, attendance records, and student submission histories.
     
-    Problem Solved:
-    Before LARS, managing lab attendance, activity submissions, and historical records required manual effort and paper logs. LARS provides a structured web interface for students and administrators to log, track, and review lab activities efficiently.
-    
-    Key Highlights:
-    • Web-based user portal for laboratory activity submissions and attendance logging.
-    • Clean session management and structured activity history tracking.
-    • Built using PHP for backend server logic and HTML/CSS/JavaScript for responsive frontend interface.`,
-    githubUrl: '', // Marked as placeholder for user to add
+Problem Solved:
+Before LARS, managing laboratory coursework and attendance involved cumbersome paper logs and manual record-keeping. LARS provides an intuitive, centralized web interface allowing students to submit their activity reports and enabling laboratory administrators to monitor session attendance in real time.
+
+Key Engineering Highlights:
+• Structured database architecture for tracking laboratory sessions, student profiles, and submission timestamps.
+• Session management and role-based access control for administrative workflows.
+• Clean responsive interface crafted with semantic HTML5, CSS3, JavaScript, and a PHP backend.`,
+    githubUrl: '', // Placeholder
     demoUrl: ''
   },
   {
@@ -29,19 +29,20 @@ export const PROJECTS = [
     category: 'personal',
     categoryName: 'Personal AI Project',
     featured: false,
-    status: 'In Development (Personal Project)',
-    summary: 'An AI-related personal project created to experiment with AI-powered functionality and modern intelligent automation workflows.',
-    problemSolved: 'Hands-on experimentation with AI-powered tools, API integrations, and practical automated features.',
-    tags: ['Python', 'AI / ML APIs', 'Automation'],
-    description: `RigMasterAI is an AI-related personal project created to explore and experiment with AI-powered functionality.
-    
-    Problem Solved:
-    Created to gain practical experience with AI integration, testing intelligent API endpoints, and building experimental workflows.
-    
-    Key Highlights:
-    • Exploratory architecture integrating AI capabilities into practical code.
-    • Built to study prompt engineering, API responses, and automated data processing.`,
-    githubUrl: '', // Marked as placeholder for user to add
+    status: 'In Active Development',
+    summary: 'An AI-driven experimental web application exploring automated workflows, prompt processing, and intelligent computer hardware & system configuration guidance.',
+    problemSolved: 'Provides hands-on experimentation with modern AI APIs, structured prompting pipelines, and web-based automation tools.',
+    tags: ['Python', 'AI / ML APIs', 'Web Automation', 'JavaScript'],
+    description: `RigMasterAI is an exploratory personal project developed to build practical experience in integrating artificial intelligence into software applications.
+
+Problem Solved:
+Created as a sandbox to investigate AI API endpoints, structured reasoning workflows, and intelligent assistance tools for complex technical tasks.
+
+Key Engineering Highlights:
+• Interactive web frontend connecting to modern intelligent API endpoints.
+• Prompt engineering experiments and structured JSON response parsing.
+• Live deployment hosted and accessible via modern cloud infrastructure.`,
+    githubUrl: '', // Placeholder
     demoUrl: 'https://rigmaster-ai.vercel.app/'
   }
 ];
@@ -67,33 +68,33 @@ export function initProjects() {
     const featuredProject = filtered.find(p => p.featured) || (filter === 'all' ? PROJECTS[0] : null);
     const regularProjects = filtered.filter(p => p !== featuredProject);
 
-    // Render Featured Project Hero Banner if present
+    // Render Featured Project Hero Card
     if (featuredProject && featuredContainer && filter === 'all') {
       featuredContainer.innerHTML = `
         <div class="glass-card glass-card-interactive reveal-on-scroll" style="margin-bottom: 2.5rem; border: 1px solid var(--border-glow); box-shadow: var(--shadow-glow); padding: 2.25rem;">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem;">
-            <div style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan);">
-              <span style="padding: 0.2rem 0.6rem; background: rgba(0, 245, 212, 0.15); border: 1px solid rgba(0, 245, 212, 0.3); border-radius: var(--radius-full); font-weight: 700;">★ FEATURED PROJECT</span>
+            <div style="display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan);">
+              <span style="padding: 0.2rem 0.65rem; background: var(--accent-cyan-subtle); border: 1px solid rgba(0, 245, 212, 0.3); border-radius: var(--radius-full); font-weight: 700;">★ FEATURED PROJECT</span>
               <span>• ${featuredProject.categoryName}</span>
             </div>
-            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.65rem; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.3);">
+            <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-emerald); background: var(--accent-emerald-subtle); padding: 0.2rem 0.65rem; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.3);">
               STATUS: ${featuredProject.status}
             </span>
           </div>
 
-          <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem;">${featuredProject.title}</h3>
+          <h3 style="font-size: 1.85rem; margin-bottom: 0.75rem; color: var(--text-main);">${featuredProject.title}</h3>
           
-          <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.25rem; line-height: 1.6;">
+          <p style="color: var(--text-muted); font-size: 1.02rem; margin-bottom: 1.25rem; line-height: 1.65;">
             ${featuredProject.summary}
           </p>
 
-          <div style="background: rgba(15, 23, 42, 0.6); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
-            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); margin-bottom: 0.25rem; font-weight: 600;">PROBLEM SOLVED:</div>
-            <div style="color: #cbd5e1; font-size: 0.95rem;">${featuredProject.problemSolved}</div>
+          <div style="background: rgba(13, 19, 31, 0.85); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); margin-bottom: 0.25rem; font-weight: 700;">PROBLEM SOLVED:</div>
+            <div style="color: var(--text-body); font-size: 0.92rem; line-height: 1.5;">${featuredProject.problemSolved}</div>
           </div>
 
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem;">
-            ${featuredProject.tags.map(t => `<span class="tech-badge" style="font-size: 0.82rem; padding: 0.3rem 0.75rem;">${t}</span>`).join('')}
+            ${featuredProject.tags.map(t => `<span class="tech-badge" style="font-size: 0.82rem; padding: 0.25rem 0.7rem;">${t}</span>`).join('')}
           </div>
 
           <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center;">
@@ -117,21 +118,21 @@ export function initProjects() {
       card.innerHTML = `
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
             <span>${project.categoryName}</span>
           </div>
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1); padding: 0.15rem 0.5rem; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.2);">
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-emerald); background: var(--accent-emerald-subtle); padding: 0.15rem 0.5rem; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.2);">
             ${project.status}
           </span>
         </div>
 
-        <h3 class="project-title" style="margin-top: 0.75rem;">${project.title}</h3>
+        <h3 class="project-title" style="margin-top: 0.5rem;">${project.title}</h3>
         
         <p class="project-desc">${project.summary}</p>
 
-        <div style="background: rgba(15, 23, 42, 0.5); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border-left: 2px solid var(--accent-blue); margin-bottom: 1.25rem;">
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-blue); font-weight: 600;">PROBLEM SOLVED:</div>
-          <div style="color: #cbd5e1; font-size: 0.85rem;">${project.problemSolved}</div>
+        <div style="background: rgba(13, 19, 31, 0.7); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border-left: 2px solid var(--accent-blue); margin-bottom: 1.25rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--accent-blue); font-weight: 700; margin-bottom: 0.15rem;">PROBLEM SOLVED:</div>
+          <div style="color: var(--text-body); font-size: 0.85rem; line-height: 1.45;">${project.problemSolved}</div>
         </div>
 
         <div class="project-tech-stack" style="margin-bottom: 1.25rem;">
@@ -153,7 +154,6 @@ export function initProjects() {
     });
 
     if (window.observeReveals) window.observeReveals();
-    if (window.initGlassSpotlights) window.initGlassSpotlights();
   }
 
   function renderLinkButtons(project) {
@@ -162,9 +162,9 @@ export function initProjects() {
            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
            GitHub
          </a>`
-      : `<button class="btn btn-secondary" disabled aria-disabled="true" style="opacity: 0.5; cursor: not-allowed; padding: 0.45rem 0.9rem; font-size: 0.8rem;" title="GitHub repository link placeholder">
+      : `<button class="btn btn-secondary" disabled aria-disabled="true" style="opacity: 0.45; cursor: not-allowed; padding: 0.45rem 0.9rem; font-size: 0.8rem;" title="GitHub repository link will be updated">
            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-           GitHub (Link Placeholder)
+           GitHub
          </button>`;
 
     const demoBtn = project.demoUrl
@@ -172,9 +172,9 @@ export function initProjects() {
            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
            Live Demo
          </a>`
-      : `<button class="btn btn-secondary" disabled aria-disabled="true" style="opacity: 0.5; cursor: not-allowed; padding: 0.45rem 0.9rem; font-size: 0.8rem;" title="Live demo link placeholder">
+      : `<button class="btn btn-secondary" disabled aria-disabled="true" style="opacity: 0.45; cursor: not-allowed; padding: 0.45rem 0.9rem; font-size: 0.8rem;" title="Live demo not available">
            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-           Live Demo (Unavailable)
+           Live Demo
          </button>`;
 
     return `${ghBtn} ${demoBtn}`;
@@ -194,24 +194,24 @@ export function initProjects() {
     if (!modalContent || !modalBackdrop) return;
     previousActiveElement = document.activeElement;
     modalContent.innerHTML = `
-      <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: 0.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 0.5rem;">
         <span>PROJECT DEEP DIVE</span> // <span>${project.categoryName}</span>
       </div>
-      <h2 id="modal-project-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">${project.title}</h2>
-      <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-emerald); margin-bottom: 1.25rem;">
+      <h2 id="modal-project-title" style="font-size: 1.75rem; margin-bottom: 0.4rem; color: var(--text-main);">${project.title}</h2>
+      <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-emerald); margin-bottom: 1.25rem;">
         Status: ${project.status}
       </div>
 
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-        ${project.tags.map(t => `<span class="tech-badge" style="background: rgba(0, 245, 212, 0.1); border-color: rgba(0, 245, 212, 0.3); color: var(--accent-cyan);">${t}</span>`).join('')}
+      <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.5rem;">
+        ${project.tags.map(t => `<span class="tech-badge" style="background: var(--accent-cyan-subtle); border-color: rgba(0, 245, 212, 0.3); color: var(--accent-cyan); font-size: 0.82rem;">${t}</span>`).join('')}
       </div>
 
-      <div style="background: rgba(15, 23, 42, 0.8); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
-        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.25rem;">PROBLEM SOLVED:</div>
-        <div style="color: #cbd5e1; font-size: 0.95rem;">${project.problemSolved}</div>
+      <div style="background: rgba(13, 19, 31, 0.85); padding: 1rem 1.25rem; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.25rem;">PROBLEM SOLVED:</div>
+        <div style="color: var(--text-body); font-size: 0.92rem; line-height: 1.5;">${project.problemSolved}</div>
       </div>
 
-      <div style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; white-space: pre-line; margin-bottom: 2rem;">
+      <div style="color: var(--text-body); font-size: 0.94rem; line-height: 1.7; white-space: pre-line; margin-bottom: 2rem;">
         ${project.description}
       </div>
 
