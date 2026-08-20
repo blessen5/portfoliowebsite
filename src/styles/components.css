@@ -100,8 +100,7 @@ header.header-scrolled {
   height: 6px;
   background-color: #10B981;
   border-radius: 50%;
-  box-shadow: 0 0 8px #10B981;
-  animation: pulse-dot 2s infinite;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
 }
 
 .nav-links {
@@ -582,7 +581,6 @@ header.header-scrolled {
   border-radius: 50%;
   background: currentColor;
   box-shadow: 0 0 6px currentColor;
-  animation: pulse-dot 2s infinite;
 }
 
 .compact-card-title {
