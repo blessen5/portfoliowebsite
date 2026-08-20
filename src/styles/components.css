@@ -197,14 +197,22 @@ header.header-scrolled {
 }
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (Centered)
    ========================================================================== */
 .hero-section {
-  min-height: 85vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
-  padding-top: 8rem;
-  padding-bottom: 4rem;
+  justify-content: center;
+  text-align: center;
+  padding-top: 8.5rem;
+  padding-bottom: 5rem;
+}
+
+.hero-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-tag {
@@ -219,7 +227,7 @@ header.header-scrolled {
 }
 
 .hero-title {
-  font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+  font-size: clamp(2.85rem, 6vw, 4.5rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.035em;
@@ -229,7 +237,7 @@ header.header-scrolled {
 
 .hero-subtitle {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
   font-weight: 600;
   color: var(--text-body);
   margin-bottom: 0.5rem;
@@ -237,7 +245,7 @@ header.header-scrolled {
 
 .hero-focus {
   font-family: var(--font-mono);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -246,14 +254,15 @@ header.header-scrolled {
 .hero-desc {
   color: var(--text-muted);
   font-size: 1.05rem;
-  line-height: 1.65;
-  max-width: 580px;
-  margin-bottom: 2.25rem;
+  line-height: 1.7;
+  max-width: 660px;
+  margin: 0 auto 2.25rem auto;
 }
 
 .hero-cta {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 2.25rem;
@@ -262,6 +271,7 @@ header.header-scrolled {
 .hero-profiles {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.85rem;
 }
 
