@@ -1,4 +1,4 @@
-/* Design Tokens & Theme System — Dark Midnight Obsidian, Navy (#1A1A40) & Flame Vermilion (#E73F1E) */
+/* Design Tokens & Theme System — Dark Midnight Obsidian, Navy & Slate */
 :root {
   /* Color Palette — Deep Midnight Obsidian & Dark Glass */
   --bg-dark: #060814;
@@ -9,44 +9,44 @@
   --bg-glass: rgba(10, 14, 26, 0.85);
   --bg-terminal: #080B18;
 
-  /* Primary Theme Brand Color — Deep Midnight Navy */
-  --primary-navy: #1A1A40;
-  --primary-navy-hover: #27275E;
-  --primary-navy-subtle: rgba(26, 26, 64, 0.35);
+  /* Primary Theme Brand Color — Deep Midnight Navy & Blue */
+  --primary-navy: #1E293B;
+  --primary-navy-hover: #334155;
+  --primary-navy-subtle: rgba(30, 41, 59, 0.5);
 
-  /* Primary Accent Color — Flame Vermilion (#E73F1E) */
-  --accent-cyan: #E73F1E;
-  --accent-cyan-hover: #FF522C;
-  --accent-cyan-glow: rgba(231, 63, 30, 0.40);
-  --accent-cyan-subtle: rgba(231, 63, 30, 0.14);
-  --accent-cyan-dark: #B9280D;
+  /* Primary UI Accent Tokens — Electric Blue & Sky */
+  --accent-cyan: #38BDF8;
+  --accent-cyan-hover: #60A5FA;
+  --accent-cyan-glow: rgba(56, 189, 248, 0.25);
+  --accent-cyan-subtle: rgba(56, 189, 248, 0.10);
+  --accent-cyan-dark: #0284C7;
 
   /* Mapped Accent Tokens */
-  --accent-blue: #E73F1E;
-  --accent-blue-hover: #FF522C;
-  --accent-blue-glow: rgba(231, 63, 30, 0.40);
-  --accent-blue-subtle: rgba(231, 63, 30, 0.14);
+  --accent-blue: #3B82F6;
+  --accent-blue-hover: #60A5FA;
+  --accent-blue-glow: rgba(59, 130, 246, 0.25);
+  --accent-blue-subtle: rgba(59, 130, 246, 0.10);
 
-  --accent-red: #E73F1E;
-  --accent-red-hover: #FF522C;
-  --accent-red-glow: rgba(231, 63, 30, 0.40);
-  --accent-red-subtle: rgba(231, 63, 30, 0.14);
+  --accent-red: #EF4444;
+  --accent-red-hover: #F87171;
+  --accent-red-glow: rgba(239, 68, 68, 0.25);
+  --accent-red-subtle: rgba(239, 68, 68, 0.10);
 
   /* Secondary Accents */
-  --accent-sky: #00A8E8;
-  --accent-sky-glow: rgba(0, 168, 232, 0.30);
+  --accent-sky: #38BDF8;
+  --accent-sky-glow: rgba(56, 189, 248, 0.25);
 
-  --accent-indigo: #1A1A40;
-  --accent-indigo-glow: rgba(26, 26, 64, 0.40);
+  --accent-indigo: #6366F1;
+  --accent-indigo-glow: rgba(99, 102, 241, 0.25);
   
   --accent-emerald: #10B981;
   --accent-emerald-glow: rgba(16, 185, 129, 0.25);
-  --accent-emerald-subtle: rgba(16, 185, 129, 0.12);
+  --accent-emerald-subtle: rgba(16, 185, 129, 0.10);
 
   --accent-purple: #818CF8;
   --accent-amber: #F59E0B;
 
-  /* High-Contrast Crisp Typography */
+  /* High-Contrast Crisp Typography — Neutral Uncolored Fonts */
   --text-main: #FFFFFF;
   --text-body: #E2E8F0;
   --text-muted: #94A3B8;
@@ -56,8 +56,8 @@
   /* Border & Surface Line Colors */
   --border-subtle: rgba(255, 255, 255, 0.09);
   --border-medium: rgba(255, 255, 255, 0.18);
-  --border-glow: rgba(231, 63, 30, 0.45);
-  --border-blue: rgba(0, 168, 232, 0.35);
+  --border-glow: rgba(255, 255, 255, 0.25);
+  --border-blue: rgba(59, 130, 246, 0.35);
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -70,8 +70,8 @@
   --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.6);
   --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.75), 0 8px 10px -6px rgba(0, 0, 0, 0.65);
   --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.95);
-  --shadow-glow: 0 0 26px rgba(231, 63, 30, 0.35);
-  --shadow-glow-blue: 0 0 26px rgba(0, 168, 232, 0.28);
+  --shadow-glow: 0 0 24px rgba(255, 255, 255, 0.12);
+  --shadow-glow-blue: 0 0 24px rgba(59, 130, 246, 0.25);
 
   /* Layout & Transitions */
   --radius-xs: 4px;

@@ -24,7 +24,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Full-Screen Ambient Aurora & Tech Mesh Background Canvas */
+/* Full-Screen Ambient Background Canvas */
 #ambient-canvas,
 #galaxy-canvas,
 #color-bends-canvas {
@@ -40,7 +40,7 @@ body {
 
 /* Text Selection */
 ::selection {
-  background-color: rgba(231, 63, 30, 0.35);
+  background-color: rgba(59, 130, 246, 0.35);
   color: #FFFFFF;
 }
 
@@ -56,10 +56,10 @@ body {
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(231, 63, 30, 0.45);
+  background: rgba(255, 255, 255, 0.35);
 }
 
-/* Typography Defaults */
+/* Typography Defaults — Neutral Uncolored Fonts */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   color: var(--text-main);
@@ -74,13 +74,14 @@ p {
 }
 
 a {
-  color: var(--accent-cyan);
+  color: var(--text-main);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), opacity var(--transition-fast);
 }
 
 a:hover {
-  color: var(--accent-cyan-hover);
+  color: #FFFFFF;
+  opacity: 0.9;
 }
 
 ul, ol {
@@ -124,15 +125,15 @@ input, button, textarea, select {
   gap: 0.45rem;
   font-family: var(--font-mono);
   font-size: 0.82rem;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-cyan);
+  color: var(--text-muted);
   margin-bottom: 0.75rem;
   padding: 0.35rem 0.95rem;
   border-radius: var(--radius-full);
-  background: var(--accent-cyan-subtle);
-  border: 1px solid rgba(231, 63, 30, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .section-title {
@@ -159,7 +160,7 @@ input, button, textarea, select {
 }
 
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #FF6B4A 0%, #E73F1E 60%, #FF8A70 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -189,7 +190,7 @@ input, button, textarea, select {
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--accent-cyan);
+  background: #2563EB;
   color: #FFFFFF;
   padding: 8px;
   z-index: 10000;

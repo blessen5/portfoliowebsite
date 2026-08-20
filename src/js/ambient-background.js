@@ -1,9 +1,9 @@
-/* Ambient Aurora & Obsidian Tech Mesh Background — Dark Theme
+/* Ambient Obsidian Tech Mesh & Celestial Canvas Background — Dark Theme
    - Deep Midnight Obsidian Canvas (#060814)
-   - Multi-layer slow-morphing Flame Vermilion (#E73F1E) & Midnight Navy Aurora Glows
+   - Multi-layer slow-morphing Midnight Navy & Oceanic Glows
    - Ultra-clean subtle geometric tech dot matrix grid
-   - Drifting glowing micro-embers with soft atmospheric breathing
-   - Luxury dark-mode developer aesthetic inspired by Linear, Stripe & Vercel
+   - Drifting soft luminous starlight micro-particles
+   - Luxury dark-mode developer aesthetic
    - Low-energy 60fps canvas engine with automatic tab-pause lifecycle
 */
 
@@ -32,15 +32,15 @@ export function initAmbientBackground() {
     ctx.scale(dpr, dpr);
   }
 
-  // --- 1. Ambient Morphing Flame & Navy Aurora Light Blobs ---
+  // --- 1. Ambient Morphing Deep Navy & Subtle Cyan/Indigo Blobs ---
   const auroras = [
     {
       xRatio: 0.24,
       yRatio: 0.28,
       baseRadius: 440,
       radius: 440,
-      color: 'rgba(231, 63, 30, 0.20)', // Flame Vermilion #E73F1E
-      colorOuter: 'rgba(231, 63, 30, 0.0)',
+      color: 'rgba(30, 58, 138, 0.18)', // Deep Midnight Navy
+      colorOuter: 'rgba(15, 23, 42, 0.0)',
       angle: 0.5,
       speed: 0.00045,
       driftX: 130,
@@ -51,7 +51,7 @@ export function initAmbientBackground() {
       yRatio: 0.38,
       baseRadius: 480,
       radius: 480,
-      color: 'rgba(30, 58, 138, 0.22)', // Deep Midnight Navy
+      color: 'rgba(15, 23, 42, 0.22)', // Slate Obsidian Navy
       colorOuter: 'rgba(15, 23, 42, 0.0)',
       angle: 2.1,
       speed: -0.00035,
@@ -63,8 +63,8 @@ export function initAmbientBackground() {
       yRatio: 0.72,
       baseRadius: 520,
       radius: 520,
-      color: 'rgba(231, 63, 30, 0.16)', // Warm Radiant Flame
-      colorOuter: 'rgba(231, 63, 30, 0.0)',
+      color: 'rgba(30, 64, 175, 0.14)', // Cool Blue Glow
+      colorOuter: 'rgba(15, 23, 42, 0.0)',
       angle: 4.2,
       speed: 0.0003,
       driftX: 160,
@@ -75,7 +75,7 @@ export function initAmbientBackground() {
       yRatio: 0.84,
       baseRadius: 380,
       radius: 380,
-      color: 'rgba(99, 102, 241, 0.14)', // Indigo Mist
+      color: 'rgba(99, 102, 241, 0.12)', // Indigo Mist
       colorOuter: 'rgba(0, 0, 0, 0)',
       angle: 5.4,
       speed: -0.00045,
@@ -84,8 +84,8 @@ export function initAmbientBackground() {
     }
   ];
 
-  // --- 2. Floating Luminous Stardust / Micro-Embers ---
-  const EMBER_COUNT = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 14000), 55);
+  // --- 2. Floating Luminous Stardust ---
+  const EMBER_COUNT = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 14000), 50);
   const embers = [];
 
   function createEmbers() {
@@ -94,13 +94,12 @@ export function initAmbientBackground() {
       embers.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 1.7 + 0.6,
-        baseAlpha: Math.random() * 0.45 + 0.2,
+        radius: Math.random() * 1.5 + 0.5,
+        baseAlpha: Math.random() * 0.4 + 0.15,
         pulseSpeed: Math.random() * 0.015 + 0.008,
         pulsePhase: Math.random() * Math.PI * 2,
-        vy: -(Math.random() * 0.25 + 0.08), // Gentle upward drift
-        vx: (Math.random() - 0.5) * 0.12,
-        isFlame: Math.random() > 0.35
+        vy: -(Math.random() * 0.22 + 0.06), // Gentle upward drift
+        vx: (Math.random() - 0.5) * 0.1
       });
     }
   }
@@ -128,11 +127,11 @@ export function initAmbientBackground() {
 
     // --- A. Subtle Geometric Tech Dot Grid ---
     const gridSpacing = 42;
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.035)';
     for (let gx = gridSpacing / 2; gx < width; gx += gridSpacing) {
       for (let gy = gridSpacing / 2; gy < height; gy += gridSpacing) {
         ctx.beginPath();
-        ctx.arc(gx, gy, 0.9, 0, Math.PI * 2);
+        ctx.arc(gx, gy, 0.85, 0, Math.PI * 2);
         ctx.fill();
       }
     }
@@ -150,7 +149,7 @@ export function initAmbientBackground() {
 
       const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
       grad.addColorStop(0, aurora.color);
-      grad.addColorStop(0.55, aurora.color.replace(/[\d\.]+\)$/, '0.04)'));
+      grad.addColorStop(0.55, aurora.color.replace(/[\d\.]+\)$/, '0.03)'));
       grad.addColorStop(1, aurora.colorOuter);
 
       ctx.fillStyle = grad;
@@ -161,7 +160,7 @@ export function initAmbientBackground() {
 
     ctx.restore();
 
-    // --- C. Floating Micro-Embers with Breathing Glow ---
+    // --- C. Floating Micro-Stardust ---
     for (let i = 0; i < embers.length; i++) {
       const e = embers[i];
 
@@ -175,29 +174,13 @@ export function initAmbientBackground() {
       if (e.x < -10) e.x = width + 10;
       if (e.x > width + 10) e.x = -10;
 
-      const pulse = Math.sin(e.pulsePhase) * 0.25;
+      const pulse = Math.sin(e.pulsePhase) * 0.2;
       const currentAlpha = Math.max(0.1, Math.min(1, e.baseAlpha + pulse));
 
-      if (e.isFlame) {
-        ctx.fillStyle = `rgba(231, 63, 30, ${currentAlpha})`;
-      } else {
-        ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.75})`;
-      }
-
+      ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.7})`;
       ctx.beginPath();
       ctx.arc(e.x, e.y, e.radius, 0, Math.PI * 2);
       ctx.fill();
-
-      // Soft glow aura around flame embers
-      if (e.isFlame && e.radius > 1.2) {
-        ctx.save();
-        ctx.globalCompositeOperation = 'screen';
-        ctx.fillStyle = `rgba(231, 63, 30, ${currentAlpha * 0.35})`;
-        ctx.beginPath();
-        ctx.arc(e.x, e.y, e.radius * 2.6, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      }
     }
 
     if (!prefersReducedMotion) {

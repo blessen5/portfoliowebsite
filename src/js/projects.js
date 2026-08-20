@@ -180,7 +180,7 @@ export function initProjects() {
       <h2 id="modal-project-title" style="font-size: 1.65rem; font-weight: 800; margin-bottom: 0.25rem; color: var(--text-main);">
         ${project.title}
       </h2>
-      <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan-dark); font-weight: 700; margin-bottom: 1.25rem;">
+      <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); font-weight: 700; margin-bottom: 1.25rem;">
         ${project.subtitle}
       </div>
 
