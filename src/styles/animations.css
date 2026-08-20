@@ -26,7 +26,7 @@
   display: inline-block;
   width: 8px;
   height: 15px;
-  background-color: var(--accent-cyan);
+  background-color: var(--primary-red);
   vertical-align: middle;
   margin-left: 2px;
   animation: blink 1s step-start infinite;

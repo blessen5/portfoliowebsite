@@ -1,6 +1,6 @@
 /* Atmospheric Ambient Obsidian Canvas Engine
-   - Deep Midnight Obsidian Base (#030712)
-   - Multi-layer slow-morphing Deep Navy & Cool Blue Aurora Glows
+   - Pitch Obsidian Black Base (#030204)
+   - Multi-layer slow-morphing Deep Ruby & Vibrant Crimson Aurora Glows
    - Ultra-clean subtle geometric tech dot matrix grid
    - Gentle floating luminous starlight micro-particles
    - Low-energy 60fps canvas engine with automatic tab-pause lifecycle
@@ -31,15 +31,15 @@ export function initAmbientBackground() {
     ctx.scale(dpr, dpr);
   }
 
-  // Atmospheric Radial Aurora Glow Blobs
+  // Atmospheric Radial Aurora Glow Blobs with rich Crimson & Dark Ruby tones
   const auroras = [
     {
       xRatio: 0.20,
       yRatio: 0.25,
       baseRadius: 450,
       radius: 450,
-      color: 'rgba(30, 58, 138, 0.16)', // Deep Midnight Navy
-      colorOuter: 'rgba(3, 7, 18, 0.0)',
+      color: 'rgba(190, 18, 60, 0.15)', // Deep Crimson Red
+      colorOuter: 'rgba(3, 2, 4, 0.0)',
       angle: 0.5,
       speed: 0.0004,
       driftX: 120,
@@ -50,8 +50,8 @@ export function initAmbientBackground() {
       yRatio: 0.35,
       baseRadius: 500,
       radius: 500,
-      color: 'rgba(15, 23, 42, 0.24)', // Slate Obsidian
-      colorOuter: 'rgba(3, 7, 18, 0.0)',
+      color: 'rgba(136, 19, 55, 0.18)', // Dark Ruby Wine
+      colorOuter: 'rgba(3, 2, 4, 0.0)',
       angle: 2.1,
       speed: -0.0003,
       driftX: 140,
@@ -62,8 +62,8 @@ export function initAmbientBackground() {
       yRatio: 0.70,
       baseRadius: 550,
       radius: 550,
-      color: 'rgba(30, 64, 175, 0.12)', // Cool Blue Glow
-      colorOuter: 'rgba(3, 7, 18, 0.0)',
+      color: 'rgba(225, 29, 72, 0.12)', // Radiant Rose Red Glow
+      colorOuter: 'rgba(3, 2, 4, 0.0)',
       angle: 4.2,
       speed: 0.00025,
       driftX: 150,
@@ -106,7 +106,7 @@ export function initAmbientBackground() {
     time += 1;
 
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#030712';
+    ctx.fillStyle = '#030204';
     ctx.fillRect(0, 0, width, height);
 
     // Subtle Geometric Dot Grid

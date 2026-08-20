@@ -21,7 +21,7 @@ header.header-scrolled {
   margin: 0 auto;
   width: fit-content;
   max-width: 92%;
-  background: rgba(10, 15, 29, 0.75);
+  background: rgba(12, 5, 8, 0.80);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.10);
@@ -35,9 +35,9 @@ header.header-scrolled {
 }
 
 .navbar.scrolled {
-  background: rgba(6, 10, 20, 0.90);
+  background: rgba(8, 3, 5, 0.94);
   border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 14px 35px -5px rgba(0, 0, 0, 0.85), 0 0 15px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 14px 35px -5px rgba(0, 0, 0, 0.85), 0 0 15px rgba(225, 29, 72, 0.18);
 }
 
 .brand-logo {
@@ -148,16 +148,16 @@ header.header-scrolled {
 }
 
 .btn-primary {
-  background: var(--primary-blue);
+  background: var(--primary-red);
   color: #FFFFFF;
   font-weight: 600;
-  box-shadow: 0 4px 20px var(--primary-blue-glow);
+  box-shadow: 0 4px 20px var(--primary-red-glow);
 }
 
 .btn-primary:hover {
-  background: var(--primary-blue-hover);
+  background: var(--primary-red-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 26px var(--primary-blue-glow);
+  box-shadow: 0 6px 26px var(--primary-red-glow);
   color: #FFFFFF;
 }
 
@@ -394,7 +394,7 @@ header.header-scrolled {
   bottom: -2rem;
   left: 50%;
   transform: translateX(-50%) translateY(4px);
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(18, 6, 10, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
   font-family: var(--font-mono);
@@ -738,8 +738,8 @@ header.header-scrolled {
 }
 
 .form-control:focus {
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 12px var(--primary-blue-glow);
+  border-color: var(--primary-red);
+  box-shadow: 0 0 12px var(--primary-red-glow);
   outline: none;
 }
 
@@ -823,7 +823,7 @@ textarea.form-control {
   max-width: 680px;
   max-height: 85vh;
   overflow-y: auto;
-  background: rgba(11, 15, 25, 0.96);
+  background: rgba(12, 5, 8, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -871,7 +871,7 @@ textarea.form-control {
 .command-palette-dialog {
   width: 90%;
   max-width: 560px;
-  background: rgba(11, 15, 25, 0.96);
+  background: rgba(12, 5, 8, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-lg);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95);
@@ -884,7 +884,7 @@ textarea.form-control {
   gap: 0.75rem;
   padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--border-subtle);
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(18, 6, 10, 0.85);
 }
 
 .command-search-icon {

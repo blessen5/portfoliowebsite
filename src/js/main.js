@@ -106,9 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (formFeedback) {
       formFeedback.style.display = 'block';
-      formFeedback.style.background = 'rgba(0, 245, 212, 0.15)';
-      formFeedback.style.border = '1px solid rgba(0, 245, 212, 0.3)';
-      formFeedback.style.color = 'var(--accent-cyan)';
+      formFeedback.style.background = 'rgba(225, 29, 72, 0.15)';
+      formFeedback.style.border = '1px solid rgba(225, 29, 72, 0.35)';
+      formFeedback.style.color = '#FB7185';
       formFeedback.textContent = 'Opening your email client to send message to blessenpshaju@gmail.com...';
     }
 

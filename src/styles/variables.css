@@ -1,28 +1,39 @@
-/* Design Tokens & Theme System — Modern High-Contrast Obsidian */
+/* Design Tokens & Theme System — Modern High-Contrast Obsidian Black & Crimson Red */
 :root {
-  /* Color Palette — Deep Obsidian (#030712) & Glass Surfaces */
-  --bg-dark: #030712;
-  --bg-dark-secondary: #0B0F19;
-  --bg-card: rgba(15, 23, 42, 0.65);
-  --bg-card-hover: rgba(30, 41, 59, 0.75);
-  --bg-card-elevated: rgba(15, 23, 42, 0.90);
-  --bg-glass: rgba(3, 7, 18, 0.80);
-  --bg-terminal: #070B14;
+  /* Color Palette — Pitch Obsidian Black (#030204) & Crimson Glass Surfaces */
+  --bg-dark: #030204;
+  --bg-dark-secondary: #0A0507;
+  --bg-card: rgba(20, 8, 12, 0.65);
+  --bg-card-hover: rgba(36, 12, 18, 0.75);
+  --bg-card-elevated: rgba(20, 8, 12, 0.90);
+  --bg-glass: rgba(5, 3, 5, 0.85);
+  --bg-terminal: #080305;
 
-  /* Primary Accent & Brand Color — Clean Electric Blue / Slate */
-  --primary-blue: #3B82F6;
-  --primary-blue-hover: #2563EB;
-  --primary-blue-glow: rgba(59, 130, 246, 0.35);
-  --primary-blue-subtle: rgba(59, 130, 246, 0.12);
+  /* Primary Accent & Brand Color — Vibrant Crimson & Ruby Red */
+  --primary-red: #E11D48;
+  --primary-red-hover: #BE123C;
+  --primary-red-glow: rgba(225, 29, 72, 0.38);
+  --primary-red-subtle: rgba(225, 29, 72, 0.12);
 
-  --accent-cyan: #38BDF8;
-  --accent-cyan-hover: #0EA5E9;
-  --accent-cyan-glow: rgba(56, 189, 248, 0.30);
-  --accent-cyan-subtle: rgba(56, 189, 248, 0.10);
+  --accent-ruby: #FB7185;
+  --accent-ruby-hover: #F43F5E;
+  --accent-ruby-glow: rgba(251, 113, 133, 0.30);
+  --accent-ruby-subtle: rgba(251, 113, 133, 0.10);
+
+  /* Aliases for backwards compatibility */
+  --primary-blue: var(--primary-red);
+  --primary-blue-hover: var(--primary-red-hover);
+  --primary-blue-glow: var(--primary-red-glow);
+  --primary-blue-subtle: var(--primary-red-subtle);
+
+  --accent-cyan: var(--accent-ruby);
+  --accent-cyan-hover: var(--accent-ruby-hover);
+  --accent-cyan-glow: var(--accent-ruby-glow);
+  --accent-cyan-subtle: var(--accent-ruby-subtle);
 
   /* High-Contrast Crisp Typography — Neutral Uncolored Fonts */
   --text-main: #FFFFFF;
-  --text-body: #E2E8F0;
+  --text-body: #F1F5F9;
   --text-muted: #94A3B8;
   --text-subtle: #64748B;
   --text-dark: #FFFFFF;
@@ -30,8 +41,8 @@
   /* Border & Surface Line Colors */
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-medium: rgba(255, 255, 255, 0.16);
-  --border-glow: rgba(255, 255, 255, 0.28);
-  --border-active: rgba(59, 130, 246, 0.50);
+  --border-glow: rgba(225, 29, 72, 0.35);
+  --border-active: rgba(225, 29, 72, 0.55);
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -44,7 +55,7 @@
   --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.6);
   --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.9);
-  --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.28);
+  --shadow-glow: 0 0 24px rgba(225, 29, 72, 0.32);
 
   /* Layout & Transitions */
   --radius-xs: 6px;

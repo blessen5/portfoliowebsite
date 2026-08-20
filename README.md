@@ -8,8 +8,7 @@
 
 - **Frontend**: Vanilla JavaScript (ES6+), HTML5, Custom CSS3 Glassmorphic Styling
 - **Build Tool**: Vite v5
-- **Fonts**: Space Grotesk, Inter, JetBrains Mono
-- **Design System**: Dark Obsidian (`#090D16`), Cyan Glow (`#00F5D4`), Electric Blue (`#3B82F6`), Emerald Status (`#10B981`)
+- **Design System**: Pitch Obsidian Black (`#030204`), Crimson Red (`#E11D48`), Ruby Glow (`#FB7185`), Glass Surfaces
 
 ## 🚀 Key Features
 

@@ -40,7 +40,7 @@ body {
 
 /* Text Selection */
 ::selection {
-  background-color: rgba(59, 130, 246, 0.35);
+  background-color: rgba(225, 29, 72, 0.45);
   color: #FFFFFF;
 }
 

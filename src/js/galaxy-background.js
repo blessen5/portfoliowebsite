@@ -50,7 +50,7 @@ export function initGalaxyBackground() {
       } else if (colorRoll > 0.70) {
         colorPrefix = 'rgba(225, 29, 72, '; // Crimson Red
       } else if (colorRoll > 0.60) {
-        colorPrefix = 'rgba(224, 242, 254, '; // Faint Ice Blue
+        colorPrefix = 'rgba(254, 205, 211, '; // Warm Rose White
       }
 
       backgroundStars.push({
@@ -91,7 +91,7 @@ export function initGalaxyBackground() {
       // Smooth ambient orbital speed (slower outer edge, gentle core revolution)
       const orbitalSpeed = (0.00045 / (0.4 + normDist * 0.6)) * 0.9;
 
-      // Stylized color palette: white starlight, glowing ruby, cosmic crimson, magenta, subtle ice cyan
+      // Stylized color palette: white starlight, glowing ruby, cosmic crimson, warm rose
       let color;
       const colorRoll = Math.random();
       if (colorRoll < 0.42) {
@@ -101,7 +101,7 @@ export function initGalaxyBackground() {
       } else if (colorRoll < 0.88) {
         color = { r: 251, g: 113, b: 133, a: Math.random() * 0.8 + 0.25 }; // Glowing Rose / Magenta
       } else {
-        color = { r: 224, g: 242, b: 254, a: Math.random() * 0.75 + 0.25 }; // Celestial Ice Blue
+        color = { r: 254, g: 205, b: 211, a: Math.random() * 0.75 + 0.25 }; // Soft Rose Starlight
       }
 
       // Vertical depth on celestial plane

@@ -52,7 +52,7 @@ export function initCommandPalette() {
       div.className = `command-item ${index === selectedIndex ? 'selected' : ''}`;
       div.innerHTML = `
         <div class="command-item-left">
-          <span style="display: flex; align-items: center; color: var(--accent-cyan);">${item.iconSvg}</span>
+          <span style="display: flex; align-items: center; color: var(--primary-red);">${item.iconSvg}</span>
           <span class="command-item-title">${item.title}</span>
         </div>
         <span class="command-item-badge">${item.category}</span>
