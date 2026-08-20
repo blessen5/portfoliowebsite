@@ -1,8 +1,9 @@
-/* Compact & Elegant Project Showcase Logic */
+/* Structured & Modern Project Showcase Logic */
 
 export const PROJECTS = [
   {
     id: 'rigmaster-ai',
+    idx: '01',
     title: 'RigMasterAI',
     subtitle: 'Intelligent System Configurator',
     category: 'personal',
@@ -23,6 +24,7 @@ Key Engineering Highlights:
   },
   {
     id: 'lars',
+    idx: '02',
     title: 'Lab Activity Reporting System (LARS)',
     subtitle: 'Academic Lab Management Portal',
     category: 'academic',
@@ -43,6 +45,7 @@ Key Engineering Highlights:
   },
   {
     id: 'data-analytics-suite',
+    idx: '03',
     title: 'Data Analytics & SQL Pipeline',
     subtitle: 'ETL & Business Intelligence',
     category: 'personal',
@@ -63,6 +66,7 @@ Key Engineering Highlights:
   },
   {
     id: 'cloud-devops-lab',
+    idx: '04',
     title: 'Cloud & Containerized Lab',
     subtitle: 'Docker & Virtualization Setup',
     category: 'personal',
@@ -84,84 +88,62 @@ Key Engineering Highlights:
 ];
 
 export function initProjects() {
-  const grid = document.getElementById('projects-grid');
-  const featuredContainer = document.getElementById('featured-project-container');
-  const filterBtns = document.querySelectorAll('.filter-btn');
+  const container = document.getElementById('projects-container');
   const modalBackdrop = document.getElementById('project-modal-backdrop');
   const modalContent = document.getElementById('project-modal-body');
   const modalClose = document.getElementById('modal-close-btn');
 
-  if (!grid) return;
-  if (featuredContainer) featuredContainer.innerHTML = ''; // Keep layout unified & compact
+  if (!container) return;
 
-  function renderProjects(filter = 'all') {
-    grid.innerHTML = '';
+  function renderProjects() {
+    container.innerHTML = '';
 
-    const filtered = filter === 'all' 
-      ? PROJECTS 
-      : PROJECTS.filter(p => p.category === filter);
-
-    filtered.forEach(project => {
-      const card = document.createElement('div');
-      card.className = 'compact-project-card glass-card glass-card-interactive reveal-on-scroll';
-      card.innerHTML = `
-        <div class="card-top-row">
-          <span class="badge-category">${project.categoryName}</span>
-          <span class="badge-status ${project.statusClass}">
-            <span class="status-pulse-dot"></span>
-            ${project.status}
-          </span>
-        </div>
-
-        <h3 class="compact-card-title">${project.title}</h3>
-        <div class="compact-card-subtitle">${project.subtitle}</div>
+    PROJECTS.forEach(project => {
+      const item = document.createElement('div');
+      item.className = 'project-item reveal-on-scroll';
+      item.innerHTML = `
+        <div class="project-idx">${project.idx}</div>
         
-        <p class="compact-card-summary">${project.summary}</p>
-
-        <div class="compact-tech-tags">
-          ${project.tags.map(t => `<span class="tech-badge">${t}</span>`).join('')}
+        <div class="project-title-group">
+          <h3>${project.title}</h3>
+          <div class="project-cat">${project.subtitle}</div>
         </div>
 
-        <div class="compact-card-actions">
-          <button class="btn btn-secondary view-details-btn" data-id="${project.id}">
-            <span>Details</span>
+        <div class="project-desc-group">
+          <p>${project.summary}</p>
+          <div class="project-tech-badges">
+            ${project.tags.map(t => `<span class="badge-tag">${t}</span>`).join('')}
+          </div>
+        </div>
+
+        <div class="project-actions">
+          <button class="btn btn-secondary view-details-btn" data-id="${project.id}" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
+            Details
           </button>
-          ${renderCompactLinks(project)}
+          ${project.githubUrl ? `
+            <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn-icon-only" title="View on GitHub" style="width: 32px; height: 32px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+          ` : ''}
+          ${project.demoUrl ? `
+            <a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" title="Open Live Demo" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
+              Live
+            </a>
+          ` : ''}
         </div>
       `;
 
-      card.querySelector('.view-details-btn').addEventListener('click', () => openModal(project));
-      grid.appendChild(card);
+      item.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) {
+          openModal(project);
+        }
+      });
+
+      container.appendChild(item);
     });
 
     if (window.observeReveals) window.observeReveals();
   }
-
-  function renderCompactLinks(project) {
-    const ghBtn = project.githubUrl
-      ? `<a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" title="View Source on GitHub">
-           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-           <span>GitHub</span>
-         </a>`
-      : '';
-
-    const demoBtn = project.demoUrl
-      ? `<a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-demo" title="Open Live Demo">
-           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-           <span>Live Demo</span>
-         </a>`
-      : '';
-
-    return `${ghBtn} ${demoBtn}`;
-  }
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderProjects(btn.getAttribute('data-filter'));
-    });
-  });
 
   let previousActiveElement = null;
 
@@ -170,9 +152,8 @@ export function initProjects() {
     previousActiveElement = document.activeElement;
     modalContent.innerHTML = `
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
-        <span class="badge-category">${project.categoryName}</span>
-        <span class="badge-status ${project.statusClass}">
-          <span class="status-pulse-dot"></span>
+        <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">${project.categoryName}</span>
+        <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-main); background: rgba(255, 255, 255, 0.08); padding: 0.2rem 0.55rem; border-radius: var(--radius-full); border: 1px solid rgba(255, 255, 255, 0.12);">
           ${project.status}
         </span>
       </div>
@@ -180,17 +161,17 @@ export function initProjects() {
       <h2 id="modal-project-title" style="font-size: 1.65rem; font-weight: 800; margin-bottom: 0.25rem; color: var(--text-main);">
         ${project.title}
       </h2>
-      <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); font-weight: 700; margin-bottom: 1.25rem;">
+      <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); font-weight: 600; margin-bottom: 1.25rem;">
         ${project.subtitle}
       </div>
 
-      <div class="compact-tech-tags" style="margin-bottom: 1.25rem;">
-        ${project.tags.map(t => `<span class="tech-badge">${t}</span>`).join('')}
+      <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem;">
+        ${project.tags.map(t => `<span class="badge-tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">${t}</span>`).join('')}
       </div>
 
-      <div class="problem-solved-box" style="margin-bottom: 1.25rem;">
-        <div class="problem-solved-title">PROBLEM SOLVED:</div>
-        <div class="problem-solved-desc">${project.problemSolved}</div>
+      <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-left: 3px solid rgba(255, 255, 255, 0.3); padding: 0.85rem 1.15rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem;">PROBLEM SOLVED:</div>
+        <div style="color: var(--text-body); font-size: 0.88rem; line-height: 1.5;">${project.problemSolved}</div>
       </div>
 
       <div style="color: var(--text-body); font-size: 0.92rem; line-height: 1.65; white-space: pre-line; margin-bottom: 1.75rem; background: rgba(255, 255, 255, 0.02); padding: 1rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
@@ -198,7 +179,18 @@ export function initProjects() {
       </div>
 
       <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-        ${renderCompactLinks(project)}
+        ${project.githubUrl ? `
+          <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>View on GitHub</span>
+          </a>
+        ` : ''}
+        ${project.demoUrl ? `
+          <a href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <span>Open Live App</span>
+          </a>
+        ` : ''}
       </div>
     `;
     modalBackdrop.classList.add('active');
@@ -226,5 +218,5 @@ export function initProjects() {
     }
   });
 
-  renderProjects('all');
+  renderProjects();
 }

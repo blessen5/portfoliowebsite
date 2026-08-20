@@ -4,6 +4,7 @@ export function initScrollEffects() {
   const navbar = document.querySelector('.navbar');
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
+  const backToTopBtn = document.getElementById('footer-back-to-top');
 
   let isTicking = false;
 
@@ -26,7 +27,7 @@ export function initScrollEffects() {
       }
     });
 
-    if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 40) {
+    if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
       const lastSection = sections[sections.length - 1];
       if (lastSection) {
         currentSectionId = lastSection.getAttribute('id') || currentSectionId;
@@ -53,10 +54,18 @@ export function initScrollEffects() {
   window.addEventListener('scroll', onScroll, { passive: true });
   handleScroll();
 
+  backToTopBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.12
+    threshold: 0.1
   };
 
   const revealObserver = new IntersectionObserver((entries, observer) => {

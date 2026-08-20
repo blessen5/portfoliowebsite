@@ -1,16 +1,15 @@
-/* Ambient Obsidian Tech Mesh & Celestial Canvas Background — Dark Theme
-   - Deep Midnight Obsidian Canvas (#060814)
-   - Multi-layer slow-morphing Midnight Navy & Oceanic Glows
+/* Atmospheric Ambient Obsidian Canvas Engine
+   - Deep Midnight Obsidian Base (#030712)
+   - Multi-layer slow-morphing Deep Navy & Cool Blue Aurora Glows
    - Ultra-clean subtle geometric tech dot matrix grid
-   - Drifting soft luminous starlight micro-particles
-   - Luxury dark-mode developer aesthetic
+   - Gentle floating luminous starlight micro-particles
    - Low-energy 60fps canvas engine with automatic tab-pause lifecycle
 */
 
 export function initAmbientBackground() {
-  const canvas = document.getElementById('galaxy-canvas') || 
-                 document.getElementById('color-bends-canvas') || 
-                 document.getElementById('ambient-canvas');
+  const canvas = document.getElementById('ambient-canvas') || 
+                 document.getElementById('galaxy-canvas') || 
+                 document.getElementById('color-bends-canvas');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
@@ -32,111 +31,96 @@ export function initAmbientBackground() {
     ctx.scale(dpr, dpr);
   }
 
-  // --- 1. Ambient Morphing Deep Navy & Subtle Cyan/Indigo Blobs ---
+  // Atmospheric Radial Aurora Glow Blobs
   const auroras = [
     {
-      xRatio: 0.24,
-      yRatio: 0.28,
-      baseRadius: 440,
-      radius: 440,
-      color: 'rgba(30, 58, 138, 0.18)', // Deep Midnight Navy
-      colorOuter: 'rgba(15, 23, 42, 0.0)',
+      xRatio: 0.20,
+      yRatio: 0.25,
+      baseRadius: 450,
+      radius: 450,
+      color: 'rgba(30, 58, 138, 0.16)', // Deep Midnight Navy
+      colorOuter: 'rgba(3, 7, 18, 0.0)',
       angle: 0.5,
-      speed: 0.00045,
-      driftX: 130,
+      speed: 0.0004,
+      driftX: 120,
+      driftY: 80
+    },
+    {
+      xRatio: 0.85,
+      yRatio: 0.35,
+      baseRadius: 500,
+      radius: 500,
+      color: 'rgba(15, 23, 42, 0.24)', // Slate Obsidian
+      colorOuter: 'rgba(3, 7, 18, 0.0)',
+      angle: 2.1,
+      speed: -0.0003,
+      driftX: 140,
       driftY: 90
     },
     {
-      xRatio: 0.80,
-      yRatio: 0.38,
-      baseRadius: 480,
-      radius: 480,
-      color: 'rgba(15, 23, 42, 0.22)', // Slate Obsidian Navy
-      colorOuter: 'rgba(15, 23, 42, 0.0)',
-      angle: 2.1,
-      speed: -0.00035,
-      driftX: 150,
-      driftY: 100
-    },
-    {
-      xRatio: 0.52,
-      yRatio: 0.72,
-      baseRadius: 520,
-      radius: 520,
-      color: 'rgba(30, 64, 175, 0.14)', // Cool Blue Glow
-      colorOuter: 'rgba(15, 23, 42, 0.0)',
+      xRatio: 0.50,
+      yRatio: 0.70,
+      baseRadius: 550,
+      radius: 550,
+      color: 'rgba(30, 64, 175, 0.12)', // Cool Blue Glow
+      colorOuter: 'rgba(3, 7, 18, 0.0)',
       angle: 4.2,
-      speed: 0.0003,
-      driftX: 160,
-      driftY: 95
-    },
-    {
-      xRatio: 0.14,
-      yRatio: 0.84,
-      baseRadius: 380,
-      radius: 380,
-      color: 'rgba(99, 102, 241, 0.12)', // Indigo Mist
-      colorOuter: 'rgba(0, 0, 0, 0)',
-      angle: 5.4,
-      speed: -0.00045,
-      driftX: 110,
-      driftY: 75
+      speed: 0.00025,
+      driftX: 150,
+      driftY: 85
     }
   ];
 
-  // --- 2. Floating Luminous Stardust ---
-  const EMBER_COUNT = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 14000), 50);
-  const embers = [];
+  // Subtle Floating Stardust
+  const STARDUST_COUNT = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 16000), 45);
+  const stardust = [];
 
-  function createEmbers() {
-    embers.length = 0;
-    for (let i = 0; i < EMBER_COUNT; i++) {
-      embers.push({
+  function createStardust() {
+    stardust.length = 0;
+    for (let i = 0; i < STARDUST_COUNT; i++) {
+      stardust.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 1.5 + 0.5,
-        baseAlpha: Math.random() * 0.4 + 0.15,
-        pulseSpeed: Math.random() * 0.015 + 0.008,
+        radius: Math.random() * 1.4 + 0.4,
+        baseAlpha: Math.random() * 0.35 + 0.1,
+        pulseSpeed: Math.random() * 0.012 + 0.006,
         pulsePhase: Math.random() * Math.PI * 2,
-        vy: -(Math.random() * 0.22 + 0.06), // Gentle upward drift
-        vx: (Math.random() - 0.5) * 0.1
+        vy: -(Math.random() * 0.2 + 0.05),
+        vx: (Math.random() - 0.5) * 0.08
       });
     }
   }
 
   window.addEventListener('resize', () => {
     resize();
-    createEmbers();
+    createStardust();
   }, { passive: true });
 
-  // Initial sizing
   resize();
-  createEmbers();
+  createStardust();
 
   let time = 0;
 
-  // --- Main 60fps Ambient Render Loop ---
   function render() {
     if (!ctx) return;
     time += 1;
 
-    // Pitch black deep midnight obsidian base
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#060814';
+    ctx.fillStyle = '#030712';
     ctx.fillRect(0, 0, width, height);
 
-    // --- A. Subtle Geometric Tech Dot Grid ---
-    const gridSpacing = 42;
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.035)';
+    // Subtle Geometric Dot Grid
+    const gridSpacing = 44;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.025)';
     for (let gx = gridSpacing / 2; gx < width; gx += gridSpacing) {
       for (let gy = gridSpacing / 2; gy < height; gy += gridSpacing) {
         ctx.beginPath();
-        ctx.arc(gx, gy, 0.85, 0, Math.PI * 2);
+        ctx.arc(gx, gy, 0.75, 0, Math.PI * 2);
         ctx.fill();
       }
     }
 
-    // --- B. Morphing Ambient Aurora Fields (Screen Blend) ---
+    // Morphing Ambient Aurora Blobs
     ctx.save();
     ctx.globalCompositeOperation = 'screen';
 
@@ -145,11 +129,11 @@ export function initAmbientBackground() {
       
       const cx = width * aurora.xRatio + Math.cos(aurora.angle + i) * aurora.driftX;
       const cy = height * aurora.yRatio + Math.sin(aurora.angle * 0.8 + i) * aurora.driftY;
-      const r = aurora.baseRadius + Math.sin(time * 0.008 + i) * 38;
+      const r = aurora.baseRadius + Math.sin(time * 0.006 + i) * 35;
 
       const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
       grad.addColorStop(0, aurora.color);
-      grad.addColorStop(0.55, aurora.color.replace(/[\d\.]+\)$/, '0.03)'));
+      grad.addColorStop(0.6, aurora.color.replace(/[\d\.]+\)$/, '0.02)'));
       grad.addColorStop(1, aurora.colorOuter);
 
       ctx.fillStyle = grad;
@@ -160,26 +144,24 @@ export function initAmbientBackground() {
 
     ctx.restore();
 
-    // --- C. Floating Micro-Stardust ---
-    for (let i = 0; i < embers.length; i++) {
-      const e = embers[i];
+    // Floating Stardust Particles
+    for (let i = 0; i < stardust.length; i++) {
+      const p = stardust[i];
 
-      // Update position
-      e.y += e.vy;
-      e.x += e.vx;
-      e.pulsePhase += e.pulseSpeed;
+      p.y += p.vy;
+      p.x += p.vx;
+      p.pulsePhase += p.pulseSpeed;
 
-      // Wrap around edges smoothly
-      if (e.y < -10) e.y = height + 10;
-      if (e.x < -10) e.x = width + 10;
-      if (e.x > width + 10) e.x = -10;
+      if (p.y < -10) p.y = height + 10;
+      if (p.x < -10) p.x = width + 10;
+      if (p.x > width + 10) p.x = -10;
 
-      const pulse = Math.sin(e.pulsePhase) * 0.2;
-      const currentAlpha = Math.max(0.1, Math.min(1, e.baseAlpha + pulse));
+      const pulse = Math.sin(p.pulsePhase) * 0.2;
+      const currentAlpha = Math.max(0.08, Math.min(1, p.baseAlpha + pulse));
 
-      ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.7})`;
+      ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.65})`;
       ctx.beginPath();
-      ctx.arc(e.x, e.y, e.radius, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fill();
     }
 
@@ -188,7 +170,6 @@ export function initAmbientBackground() {
     }
   }
 
-  // Automatic Lifecycle Tab-pause
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
