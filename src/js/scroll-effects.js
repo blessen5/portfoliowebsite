@@ -8,10 +8,13 @@ export function initScrollEffects() {
   let isTicking = false;
 
   const handleScroll = () => {
+    const header = document.getElementById('site-header');
     if (window.scrollY > 30) {
       navbar?.classList.add('scrolled');
+      header?.classList.add('header-scrolled');
     } else {
       navbar?.classList.remove('scrolled');
+      header?.classList.remove('header-scrolled');
     }
 
     let currentSectionId = 'hero';
