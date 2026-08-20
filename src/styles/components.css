@@ -131,13 +131,9 @@ header.header-scrolled {
 }
 
 .nav-link.active {
-  color: #ffffff;
-  background: var(--accent-red);
-  box-shadow: 0 0 14px var(--accent-red-glow);
-}
-
-.nav-link.active::after {
-  display: none;
+  color: var(--text-dark);
+  background: var(--accent-cyan);
+  box-shadow: 0 0 14px var(--accent-cyan-glow);
 }
 
 .nav-actions {
@@ -203,16 +199,17 @@ header.header-scrolled {
 }
 
 .btn-primary {
-  background: var(--accent-red);
-  color: #ffffff;
-  box-shadow: 0 0 18px var(--accent-red-glow);
+  background: var(--accent-cyan);
+  color: var(--text-dark);
+  font-weight: 800;
+  box-shadow: 0 0 18px var(--accent-cyan-glow);
 }
 
 .btn-primary:hover {
-  background: var(--accent-red-hover);
+  background: var(--accent-cyan-hover);
   transform: translateY(-2px);
-  box-shadow: 0 0 28px rgba(225, 29, 72, 0.45);
-  color: #ffffff;
+  box-shadow: 0 0 28px var(--accent-cyan-glow);
+  color: var(--text-dark);
 }
 
 .btn-secondary {
@@ -503,10 +500,10 @@ header.header-scrolled {
 }
 
 .filter-btn.active {
-  color: #ffffff;
-  background: var(--accent-red);
-  border-color: var(--accent-red);
-  box-shadow: 0 0 16px var(--accent-red-glow);
+  color: var(--text-dark);
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px var(--accent-cyan-glow);
 }
 
 /* Compact Projects Grid */
@@ -528,8 +525,8 @@ header.header-scrolled {
 
 .compact-project-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(225, 29, 72, 0.45);
-  box-shadow: 0 16px 35px -8px rgba(0, 0, 0, 0.9), 0 0 20px var(--accent-red-subtle);
+  border-color: var(--border-glow);
+  box-shadow: 0 16px 35px -8px rgba(0, 0, 0, 0.9), 0 0 20px var(--accent-cyan-subtle);
 }
 
 .card-top-row {
@@ -614,6 +611,7 @@ header.header-scrolled {
   font-weight: 500;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

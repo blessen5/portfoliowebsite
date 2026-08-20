@@ -1,8 +1,8 @@
 /* Ambient Aurora & Obsidian Tech Mesh Background
-   - Multi-layer slow-morphing crimson & ruby aurora glow fields
+   - Multi-layer slow-morphing Electric Cyan, Sky Azure & Sapphire aurora glow fields
    - Ultra-clean subtle tech dot matrix grid
    - Drifting micro-light embers with soft atmospheric breathing
-   - Luxury dark-mode developer aesthetic inspired by Linear, Stripe & Vercel
+   - Luxury dark-mode developer aesthetic (User-friendly & soothing on the eyes)
    - Low-energy 60fps canvas engine with automatic tab-pause lifecycle
 */
 
@@ -31,15 +31,15 @@ export function initAmbientBackground() {
     ctx.scale(dpr, dpr);
   }
 
-  // --- 1. Ambient Morphing Aurora Light Blobs ---
+  // --- 1. Ambient Morphing Cyan & Azure Aurora Light Blobs ---
   const auroras = [
     {
       xRatio: 0.25,
       yRatio: 0.28,
-      baseRadius: 360,
-      radius: 360,
-      color: 'rgba(225, 29, 72, 0.16)', // Crimson
-      colorOuter: 'rgba(159, 18, 57, 0.0)',
+      baseRadius: 380,
+      radius: 380,
+      color: 'rgba(0, 245, 212, 0.14)', // Electric Cyan
+      colorOuter: 'rgba(0, 245, 212, 0.0)',
       angle: 0.5,
       speed: 0.0004,
       driftX: 120,
@@ -48,10 +48,10 @@ export function initAmbientBackground() {
     {
       xRatio: 0.78,
       yRatio: 0.38,
-      baseRadius: 420,
-      radius: 420,
-      color: 'rgba(159, 18, 57, 0.14)', // Deep Ruby
-      colorOuter: 'rgba(76, 5, 25, 0.0)',
+      baseRadius: 440,
+      radius: 440,
+      color: 'rgba(56, 189, 248, 0.13)', // Sky Azure
+      colorOuter: 'rgba(56, 189, 248, 0.0)',
       angle: 2.1,
       speed: -0.00035,
       driftX: 140,
@@ -60,10 +60,10 @@ export function initAmbientBackground() {
     {
       xRatio: 0.50,
       yRatio: 0.72,
-      baseRadius: 460,
-      radius: 460,
-      color: 'rgba(244, 63, 94, 0.10)', // Rose Glow
-      colorOuter: 'rgba(225, 29, 72, 0.0)',
+      baseRadius: 480,
+      radius: 480,
+      color: 'rgba(99, 102, 241, 0.11)', // Deep Indigo / Sapphire
+      colorOuter: 'rgba(99, 102, 241, 0.0)',
       angle: 4.2,
       speed: 0.0003,
       driftX: 160,
@@ -72,9 +72,9 @@ export function initAmbientBackground() {
     {
       xRatio: 0.15,
       yRatio: 0.82,
-      baseRadius: 320,
-      radius: 320,
-      color: 'rgba(190, 18, 60, 0.12)', // Dark Obsidian Wine
+      baseRadius: 340,
+      radius: 340,
+      color: 'rgba(16, 185, 129, 0.09)', // Emerald Mist
       colorOuter: 'rgba(0, 0, 0, 0)',
       angle: 5.4,
       speed: -0.00045,
@@ -99,7 +99,7 @@ export function initAmbientBackground() {
         pulsePhase: Math.random() * Math.PI * 2,
         vy: -(Math.random() * 0.25 + 0.08), // Gentle upward drift
         vx: (Math.random() - 0.5) * 0.12,
-        isRed: Math.random() > 0.4
+        isCyan: Math.random() > 0.4
       });
     }
   }
@@ -120,9 +120,9 @@ export function initAmbientBackground() {
     if (!ctx) return;
     time += 1;
 
-    // Pitch black deep obsidian base
+    // Pitch black deep midnight obsidian base
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#050508';
+    ctx.fillStyle = '#05070e';
     ctx.fillRect(0, 0, width, height);
 
     // --- A. Subtle Geometric Tech Dot Grid ---
@@ -149,7 +149,7 @@ export function initAmbientBackground() {
 
       const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
       grad.addColorStop(0, aurora.color);
-      grad.addColorStop(0.55, aurora.color.replace(/[\d\.]+\)$/, '0.04)'));
+      grad.addColorStop(0.55, aurora.color.replace(/[\d\.]+\)$/, '0.035)'));
       grad.addColorStop(1, aurora.colorOuter);
 
       ctx.fillStyle = grad;
@@ -177,8 +177,8 @@ export function initAmbientBackground() {
       const pulse = Math.sin(e.pulsePhase) * 0.25;
       const currentAlpha = Math.max(0.08, Math.min(1, e.baseAlpha + pulse));
 
-      if (e.isRed) {
-        ctx.fillStyle = `rgba(244, 63, 94, ${currentAlpha})`;
+      if (e.isCyan) {
+        ctx.fillStyle = `rgba(0, 245, 212, ${currentAlpha})`;
       } else {
         ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha})`;
       }
@@ -191,8 +191,8 @@ export function initAmbientBackground() {
       if (e.radius > 1.3) {
         ctx.save();
         ctx.globalCompositeOperation = 'screen';
-        ctx.fillStyle = e.isRed 
-          ? `rgba(225, 29, 72, ${currentAlpha * 0.35})`
+        ctx.fillStyle = e.isCyan 
+          ? `rgba(0, 245, 212, ${currentAlpha * 0.35})`
           : `rgba(255, 255, 255, ${currentAlpha * 0.25})`;
         ctx.beginPath();
         ctx.arc(e.x, e.y, e.radius * 2.8, 0, Math.PI * 2);
