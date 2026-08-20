@@ -119,6 +119,15 @@
     bottom: -1.35rem !important;
     transform: translateX(50%) rotate(90deg) !important;
   }
+
+  .featured-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .project-featured-card {
+    padding: 1.6rem !important;
+  }
 }
 
 /* Mobile Phones (max-width: 600px) */
