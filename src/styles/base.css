@@ -114,6 +114,10 @@ input, button, textarea, select {
 
 .section-header {
   margin-bottom: 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-tag {
@@ -139,8 +143,9 @@ input, button, textarea, select {
   font-size: 1.05rem;
   color: var(--text-muted);
   margin-top: 0.75rem;
-  max-width: 680px;
+  max-width: 640px;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* Accessibility */

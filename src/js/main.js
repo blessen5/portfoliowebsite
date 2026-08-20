@@ -5,7 +5,6 @@ import '../styles/components.css';
 import '../styles/animations.css';
 import '../styles/responsive.css';
 
-import { initTerminal } from './terminal.js';
 import { initCommandPalette } from './command-palette.js';
 import { initProjects } from './projects.js';
 import { initScrollEffects } from './scroll-effects.js';
@@ -14,7 +13,6 @@ import { initAmbientBackground } from './ambient-background.js';
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize modular features
   initAmbientBackground();
-  initTerminal();
   initCommandPalette();
   initProjects();
   initScrollEffects();

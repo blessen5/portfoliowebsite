@@ -1,11 +1,6 @@
 /* Responsive Styles & Breakpoint Optimizations */
 
 @media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
   .about-pillars {
     grid-template-columns: 1fr;
   }
