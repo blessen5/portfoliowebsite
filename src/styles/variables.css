@@ -1,56 +1,63 @@
-/* Design Tokens & Theme System — Dark Obsidian & Electric Cyan / Sky Azure Tech Palette */
+/* Design Tokens & Theme System — Dark Midnight Obsidian, Navy (#1A1A40) & Flame Vermilion (#E73F1E) */
 :root {
-  /* Color Palette — Deep Midnight Obsidian, Charcoal & Glass */
-  --bg-dark: #05070e;
-  --bg-dark-secondary: #0a0e18;
-  --bg-card: rgba(13, 18, 28, 0.78);
-  --bg-card-hover: rgba(20, 28, 42, 0.90);
-  --bg-card-elevated: rgba(18, 24, 38, 0.94);
-  --bg-glass: rgba(10, 15, 24, 0.85);
-  --bg-terminal: #070a12;
+  /* Color Palette — Deep Midnight Obsidian & Dark Glass */
+  --bg-dark: #060814;
+  --bg-dark-secondary: #0C1022;
+  --bg-card: rgba(13, 17, 32, 0.82);
+  --bg-card-hover: rgba(20, 26, 48, 0.92);
+  --bg-card-elevated: rgba(18, 24, 44, 0.96);
+  --bg-glass: rgba(10, 14, 26, 0.85);
+  --bg-terminal: #080B18;
 
-  /* Primary Theme Accent — Electric Cyan & Sky Blue (Optimal for Dev & Data Portfolio) */
-  --accent-cyan: #00f5d4;
-  --accent-cyan-hover: #14f7db;
-  --accent-cyan-glow: rgba(0, 245, 212, 0.35);
-  --accent-cyan-subtle: rgba(0, 245, 212, 0.12);
-  --accent-cyan-dark: #00bfa5;
+  /* Primary Theme Brand Color — Deep Midnight Navy */
+  --primary-navy: #1A1A40;
+  --primary-navy-hover: #27275E;
+  --primary-navy-subtle: rgba(26, 26, 64, 0.35);
 
-  /* Secondary Accents — Sky Blue & Cobalt */
-  --accent-blue: #38bdf8;
-  --accent-blue-hover: #60a5fa;
-  --accent-blue-glow: rgba(56, 189, 248, 0.32);
-  --accent-blue-subtle: rgba(56, 189, 248, 0.12);
+  /* Primary Accent Color — Flame Vermilion (#E73F1E) */
+  --accent-cyan: #E73F1E;
+  --accent-cyan-hover: #FF522C;
+  --accent-cyan-glow: rgba(231, 63, 30, 0.40);
+  --accent-cyan-subtle: rgba(231, 63, 30, 0.14);
+  --accent-cyan-dark: #B9280D;
 
-  --accent-indigo: #6366f1;
-  --accent-indigo-glow: rgba(99, 102, 241, 0.25);
+  /* Mapped Accent Tokens */
+  --accent-blue: #E73F1E;
+  --accent-blue-hover: #FF522C;
+  --accent-blue-glow: rgba(231, 63, 30, 0.40);
+  --accent-blue-subtle: rgba(231, 63, 30, 0.14);
+
+  --accent-red: #E73F1E;
+  --accent-red-hover: #FF522C;
+  --accent-red-glow: rgba(231, 63, 30, 0.40);
+  --accent-red-subtle: rgba(231, 63, 30, 0.14);
+
+  /* Secondary Accents */
+  --accent-sky: #00A8E8;
+  --accent-sky-glow: rgba(0, 168, 232, 0.30);
+
+  --accent-indigo: #1A1A40;
+  --accent-indigo-glow: rgba(26, 26, 64, 0.40);
   
-  --accent-emerald: #10b981;
+  --accent-emerald: #10B981;
   --accent-emerald-glow: rgba(16, 185, 129, 0.25);
   --accent-emerald-subtle: rgba(16, 185, 129, 0.12);
 
-  /* Unified Mapped Red Token to Cyan for Seamless System Harmony */
-  --accent-red: #00f5d4;
-  --accent-red-hover: #14f7db;
-  --accent-red-glow: rgba(0, 245, 212, 0.35);
-  --accent-red-subtle: rgba(0, 245, 212, 0.12);
-  --accent-red-dark: #00bfa5;
+  --accent-purple: #818CF8;
+  --accent-amber: #F59E0B;
 
-  --accent-purple: #818cf8;
-  --accent-amber: #fbbf24;
+  /* High-Contrast Crisp Typography */
+  --text-main: #FFFFFF;
+  --text-body: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-subtle: #64748B;
+  --text-dark: #FFFFFF;
 
-  /* Neutral Text Hierarchy — Pure High-Contrast White & Crisp Silvers */
-  --text-main: #ffffff;
-  --text-body: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
-  --text-dark: #050811;
-
-  /* Border & Grid Colors */
+  /* Border & Surface Line Colors */
   --border-subtle: rgba(255, 255, 255, 0.09);
   --border-medium: rgba(255, 255, 255, 0.18);
-  --border-glow: rgba(0, 245, 212, 0.40);
-  --border-blue: rgba(56, 189, 248, 0.30);
+  --border-glow: rgba(231, 63, 30, 0.45);
+  --border-blue: rgba(0, 168, 232, 0.35);
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -58,13 +65,13 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
   /* Glassmorphism & Elevation */
-  --backdrop-blur: blur(18px);
+  --backdrop-blur: blur(20px);
   --backdrop-blur-heavy: blur(28px);
   --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.6);
   --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.75), 0 8px 10px -6px rgba(0, 0, 0, 0.65);
   --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.95);
-  --shadow-glow: 0 0 26px rgba(0, 245, 212, 0.28);
-  --shadow-glow-blue: 0 0 26px rgba(56, 189, 248, 0.25);
+  --shadow-glow: 0 0 26px rgba(231, 63, 30, 0.35);
+  --shadow-glow-blue: 0 0 26px rgba(0, 168, 232, 0.28);
 
   /* Layout & Transitions */
   --radius-xs: 4px;

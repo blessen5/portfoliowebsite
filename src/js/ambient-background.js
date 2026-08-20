@@ -1,8 +1,9 @@
-/* Ambient Aurora & Obsidian Tech Mesh Background
-   - Multi-layer slow-morphing Electric Cyan, Sky Azure & Sapphire aurora glow fields
-   - Ultra-clean subtle tech dot matrix grid
-   - Drifting micro-light embers with soft atmospheric breathing
-   - Luxury dark-mode developer aesthetic (User-friendly & soothing on the eyes)
+/* Ambient Aurora & Obsidian Tech Mesh Background — Dark Theme
+   - Deep Midnight Obsidian Canvas (#060814)
+   - Multi-layer slow-morphing Flame Vermilion (#E73F1E) & Midnight Navy Aurora Glows
+   - Ultra-clean subtle geometric tech dot matrix grid
+   - Drifting glowing micro-embers with soft atmospheric breathing
+   - Luxury dark-mode developer aesthetic inspired by Linear, Stripe & Vercel
    - Low-energy 60fps canvas engine with automatic tab-pause lifecycle
 */
 
@@ -31,55 +32,55 @@ export function initAmbientBackground() {
     ctx.scale(dpr, dpr);
   }
 
-  // --- 1. Ambient Morphing Cyan & Azure Aurora Light Blobs ---
+  // --- 1. Ambient Morphing Flame & Navy Aurora Light Blobs ---
   const auroras = [
     {
-      xRatio: 0.25,
+      xRatio: 0.24,
       yRatio: 0.28,
-      baseRadius: 380,
-      radius: 380,
-      color: 'rgba(0, 245, 212, 0.14)', // Electric Cyan
-      colorOuter: 'rgba(0, 245, 212, 0.0)',
-      angle: 0.5,
-      speed: 0.0004,
-      driftX: 120,
-      driftY: 80
-    },
-    {
-      xRatio: 0.78,
-      yRatio: 0.38,
       baseRadius: 440,
       radius: 440,
-      color: 'rgba(56, 189, 248, 0.13)', // Sky Azure
-      colorOuter: 'rgba(56, 189, 248, 0.0)',
-      angle: 2.1,
-      speed: -0.00035,
-      driftX: 140,
-      driftY: 100
-    },
-    {
-      xRatio: 0.50,
-      yRatio: 0.72,
-      baseRadius: 480,
-      radius: 480,
-      color: 'rgba(99, 102, 241, 0.11)', // Deep Indigo / Sapphire
-      colorOuter: 'rgba(99, 102, 241, 0.0)',
-      angle: 4.2,
-      speed: 0.0003,
-      driftX: 160,
+      color: 'rgba(231, 63, 30, 0.20)', // Flame Vermilion #E73F1E
+      colorOuter: 'rgba(231, 63, 30, 0.0)',
+      angle: 0.5,
+      speed: 0.00045,
+      driftX: 130,
       driftY: 90
     },
     {
-      xRatio: 0.15,
-      yRatio: 0.82,
-      baseRadius: 340,
-      radius: 340,
-      color: 'rgba(16, 185, 129, 0.09)', // Emerald Mist
+      xRatio: 0.80,
+      yRatio: 0.38,
+      baseRadius: 480,
+      radius: 480,
+      color: 'rgba(30, 58, 138, 0.22)', // Deep Midnight Navy
+      colorOuter: 'rgba(15, 23, 42, 0.0)',
+      angle: 2.1,
+      speed: -0.00035,
+      driftX: 150,
+      driftY: 100
+    },
+    {
+      xRatio: 0.52,
+      yRatio: 0.72,
+      baseRadius: 520,
+      radius: 520,
+      color: 'rgba(231, 63, 30, 0.16)', // Warm Radiant Flame
+      colorOuter: 'rgba(231, 63, 30, 0.0)',
+      angle: 4.2,
+      speed: 0.0003,
+      driftX: 160,
+      driftY: 95
+    },
+    {
+      xRatio: 0.14,
+      yRatio: 0.84,
+      baseRadius: 380,
+      radius: 380,
+      color: 'rgba(99, 102, 241, 0.14)', // Indigo Mist
       colorOuter: 'rgba(0, 0, 0, 0)',
       angle: 5.4,
       speed: -0.00045,
-      driftX: 100,
-      driftY: 70
+      driftX: 110,
+      driftY: 75
     }
   ];
 
@@ -93,13 +94,13 @@ export function initAmbientBackground() {
       embers.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 1.6 + 0.6,
+        radius: Math.random() * 1.7 + 0.6,
         baseAlpha: Math.random() * 0.45 + 0.2,
         pulseSpeed: Math.random() * 0.015 + 0.008,
         pulsePhase: Math.random() * Math.PI * 2,
         vy: -(Math.random() * 0.25 + 0.08), // Gentle upward drift
         vx: (Math.random() - 0.5) * 0.12,
-        isCyan: Math.random() > 0.4
+        isFlame: Math.random() > 0.35
       });
     }
   }
@@ -122,12 +123,12 @@ export function initAmbientBackground() {
 
     // Pitch black deep midnight obsidian base
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#05070e';
+    ctx.fillStyle = '#060814';
     ctx.fillRect(0, 0, width, height);
 
     // --- A. Subtle Geometric Tech Dot Grid ---
     const gridSpacing = 42;
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.035)';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
     for (let gx = gridSpacing / 2; gx < width; gx += gridSpacing) {
       for (let gy = gridSpacing / 2; gy < height; gy += gridSpacing) {
         ctx.beginPath();
@@ -145,11 +146,11 @@ export function initAmbientBackground() {
       
       const cx = width * aurora.xRatio + Math.cos(aurora.angle + i) * aurora.driftX;
       const cy = height * aurora.yRatio + Math.sin(aurora.angle * 0.8 + i) * aurora.driftY;
-      const r = aurora.baseRadius + Math.sin(time * 0.008 + i) * 35;
+      const r = aurora.baseRadius + Math.sin(time * 0.008 + i) * 38;
 
       const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
       grad.addColorStop(0, aurora.color);
-      grad.addColorStop(0.55, aurora.color.replace(/[\d\.]+\)$/, '0.035)'));
+      grad.addColorStop(0.55, aurora.color.replace(/[\d\.]+\)$/, '0.04)'));
       grad.addColorStop(1, aurora.colorOuter);
 
       ctx.fillStyle = grad;
@@ -175,27 +176,25 @@ export function initAmbientBackground() {
       if (e.x > width + 10) e.x = -10;
 
       const pulse = Math.sin(e.pulsePhase) * 0.25;
-      const currentAlpha = Math.max(0.08, Math.min(1, e.baseAlpha + pulse));
+      const currentAlpha = Math.max(0.1, Math.min(1, e.baseAlpha + pulse));
 
-      if (e.isCyan) {
-        ctx.fillStyle = `rgba(0, 245, 212, ${currentAlpha})`;
+      if (e.isFlame) {
+        ctx.fillStyle = `rgba(231, 63, 30, ${currentAlpha})`;
       } else {
-        ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.75})`;
       }
 
       ctx.beginPath();
       ctx.arc(e.x, e.y, e.radius, 0, Math.PI * 2);
       ctx.fill();
 
-      // Soft glow aura for larger embers
-      if (e.radius > 1.3) {
+      // Soft glow aura around flame embers
+      if (e.isFlame && e.radius > 1.2) {
         ctx.save();
         ctx.globalCompositeOperation = 'screen';
-        ctx.fillStyle = e.isCyan 
-          ? `rgba(0, 245, 212, ${currentAlpha * 0.35})`
-          : `rgba(255, 255, 255, ${currentAlpha * 0.25})`;
+        ctx.fillStyle = `rgba(231, 63, 30, ${currentAlpha * 0.35})`;
         ctx.beginPath();
-        ctx.arc(e.x, e.y, e.radius * 2.8, 0, Math.PI * 2);
+        ctx.arc(e.x, e.y, e.radius * 2.6, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       }
