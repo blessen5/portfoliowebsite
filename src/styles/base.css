@@ -154,18 +154,21 @@ input, button, textarea, select {
 .text-gradient {
   background: linear-gradient(135deg, #FFFFFF 20%, #CBD5E1 70%, #94A3B8 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-cyan {
   background: linear-gradient(135deg, #FF6B4A 0%, #E73F1E 60%, #FF8A70 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-silver {
   background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
